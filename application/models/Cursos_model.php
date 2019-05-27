@@ -7,6 +7,8 @@ class Cursos_model extends CI_Model {
 
 
 	public function select(){
+		$this->db->order_by('nome_curso', 'asc');
+			
 		return $this->db->get($this->table_cursos)->result();
 	}
 	public function select_id($id_curso){

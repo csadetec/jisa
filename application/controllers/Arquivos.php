@@ -9,6 +9,7 @@ class Arquivos extends CI_Controller {
         $this->load->library('PHPExcel');
         $this->load->helper(array('download','file', 'excel_helper'));
         $this->load->model(array('alunos_model', 'jogos_model', 'formacoes_model'));
+        ini_set('max_execution_time', 600); 
         verifica_login();
         verifica_admin();
         

@@ -14,8 +14,76 @@ function rename_turma($turma){
     if($turma == 'M1CAM')return 'M1A';
     if($turma == 'M1CBM')return 'M1B';
     if($turma == 'M1CCM')return 'M1C';
-    
-   return '-';
+
+    if($turma == 'F9CAM')return 'F9A';
+    if($turma == 'F9CBM')return 'F9B';
+    if($turma == 'F9CCM')return 'F9C';
+    if($turma == 'F9CDM')return 'F9D';
+
+    if($turma == 'F8CAM')return 'F8A'; 
+    if($turma == 'F8CBM')return 'F8B'; 
+    if($turma == 'F8CCM')return 'F8C'; 
+    if($turma == 'F8CDM')return 'F8D'; 
+
+    if($turma == 'F7CAM')return 'F7A';
+    if($turma == 'F7CBM')return 'F7B';
+    if($turma == 'F7CCM')return 'F7C';
+    if($turma == 'F7CDM')return 'F7D';
+
+    if($turma == 'F6CAM')return 'F6A';
+    if($turma == 'F6CBM')return 'F6B';
+    if($turma == 'F6CCM')return 'F6C';
+    if($turma == 'F6CDT')return 'F6D';
+    if($turma == 'F6CET')return 'F6E';
+
+    if($turma == 'F5CAM')return 'F5A';
+    if($turma == 'F5CBM')return 'F5B';
+    if($turma == 'F5CCM')return 'F5C';
+    if($turma == 'F5CDT')return 'F5D';
+    if($turma == 'F5CET')return 'F5E';
+
+    if($turma == 'F4CAM')return 'F4A';
+    if($turma == 'F4CBM')return 'F4B';
+    if($turma == 'F4CCM')return 'F4C';
+    if($turma == 'F4CDT')return 'F4D';
+    if($turma == 'F4CET')return 'F4E';
+    if($turma == 'F4CFT')return 'F4F';
+
+    if($turma == 'F3CAM')return 'F3A';
+    if($turma == 'F3CBM')return 'F3B';
+    if($turma == 'F3CCM')return 'F3C';
+    if($turma == 'F3CDT')return 'F3D';
+    if($turma == 'F3CET')return 'F3E';
+    if($turma == 'F3CFT')return 'F3F';
+
+    if($turma == 'F2CAM')return 'F2A';
+    if($turma == 'F2CBM')return 'F2B';
+    if($turma == 'F2CCT')return 'F2C';
+    if($turma == 'F2CDT')return 'F2D';
+    if($turma == 'F2CET')return 'F2E';
+    if($turma == 'F2CFT')return 'F2F';
+
+    if($turma == 'F2CAM')return 'F2A';
+    if($turma == 'F2CBM')return 'F2B';
+    if($turma == 'F2CCT')return 'F2C';
+    if($turma == 'F2CDT')return 'F2D';
+    if($turma == 'F2CET')return 'F2E';
+    if($turma == 'F2CFT')return 'F2F';
+
+    if($turma == 'F1CAM')return 'F1A';
+    if($turma == 'F1CBM')return 'F1B';
+    if($turma == 'F1CCT')return 'F1C';
+    if($turma == 'F1CDT')return 'F1D';
+    if($turma == 'F1CET')return 'F1E';
+    if($turma == 'F1CFT')return 'F1F';
+
+
+
+
+
+
+
+    return '-';
 
 }
 

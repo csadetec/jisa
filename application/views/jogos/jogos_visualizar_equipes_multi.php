@@ -1,3 +1,9 @@
+<?php 
+  echo '<pre>';
+  //echo print_r($jogo);
+  
+  echo '</pre>';
+?>
 <div class="row mt-3">
   <?php
   if(isset($equipe_1)):
@@ -87,124 +93,45 @@
   <div class="col-md-12">
     <?php echo form_open_multipart($action, array('id'=>'form_jogo'));?>
       <div class="form-row">
-        <?php if($equipe_1): ?>      
-        <legend><?php echo $jogo->nome_equipe_1 ?></legend>
-        <div class="form-group col-4">
-          <label for="pontos_equipe_1">Vencedor</label>
-          <?php
-            $options = array(0=>'NÃO', 3=>'SIM');
-            echo form_dropdown('pontos_equipe_1', $options, @$jogo->pontos_equipe_1, array('class'=>'form-control', 'required'=>'required', 'id'=>'pontos_equipe_1'));
-            ?>
-        </div>
-        <div class="form-group col-4">
-          <label for="fair_play_1">FAIR PLAY</label>
-          <?php
-          $options = array(0=>'NÃO', 1=>'SIM');
-          echo form_dropdown('fair_play_1', $options, @$jogo->fair_play_1, array('class'=>'form-control', 'required'=>'required', 'id'=>'fair_play_1'));
-          ?>
-        </div>
-        <div class="form-group col-4">
-          <label for="pontos_final_1">PONTOS</label>
-          <input type="number" name="pontos_final_1" id="pontos_final_1" class="form-control" placeholder="<?php echo $placeholder_pontos_final ?>" required="required" value="<?php echo @$jogo->pontos_final_1 ?>" >
-        </div>
-      <?php endif; ?>
-      </div><!-- form-inline -->
+        <?php if($equipe_1): ?>   
+        <div class="card mt-2">
+          <div class="card-header">
+            <?php echo $jogo->nome_equipe_1 ?>
+          </div>
+          <div class="card-body">
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="pontos_equipe_1">PLACAR</label>
+                <?php
+                  $options = range(0,200);
+                  echo form_dropdown('pontos_equipe_1', $options, @$jogo->pontos_equipe_1, array('class'=>'form-control', 'required'=>'required', 'id'=>'pontos_equipe_1'));
+                ?>
+              </div><!--col-md-12-->
+              <div class="form-group col-6">
+                <label for="fair_play_1">FAIR PLAY</label>
+                  <?php
+                  $options = array(0=>'NÃO', 1=>'SIM');
+                  echo form_dropdown('fair_play_1', $options, @$jogo->fair_play_1, array('class'=>'form-control', 'required'=>'required', 'id'=>'fair_play_1'));
+                  ?>
+              </div><!-- col-md-6-->
 
-      <div class="form-row">
-        <?php if($equipe_2): ?>      
-        <legend><?php echo $jogo->nome_equipe_2 ?></legend>
-        <div class="form-group col-4">
-          <label for="pontos_equipe_2">Vencedor</label>
-          <?php
-            $options = array(0=>'NÃO', 3=>'SIM');
-            echo form_dropdown('pontos_equipe_2', $options, @$jogo->pontos_equipe_2, array('class'=>'form-control', 'required'=>'required', 'id'=>'pontos_equipe_2'));
-            ?>
-        </div>
-        <div class="form-group col-4">
-          <label for="fair_play_2">FAIR PLAY</label>
-          <?php
-          $options = array(0=>'NÃO', 1=>'SIM');
-          echo form_dropdown('fair_play_2', $options, @$jogo->fair_play_2, array('class'=>'form-control', 'required'=>'required', 'id'=>'fair_play_2'));
-          ?>
-        </div>
-        <div class="form-group col-4">
-          <label for="pontos_final_2">PONTOS</label>
-          <input type="number" name="pontos_final_2" id="pontos_final_2" class="form-control" placeholder="<?php echo $placeholder_pontos_final ?>" required="required" value="<?php echo @$jogo->pontos_final_2 ?>" >
-        </div>
-      <?php endif; ?>
-      </div><!-- form-inline -->
+             
 
-      <div class="form-row">
-        <?php if($equipe_3): ?>      
-        <legend><?php echo $jogo->nome_equipe_3 ?></legend>
-        <div class="form-group col-4">
-          <label for="pontos_equipe_3">Vencedor</label>
-          <?php
-            $options = array(0=>'NÃO', 3=>'SIM');
-            echo form_dropdown('pontos_equipe_3', $options, @$jogo->pontos_equipe_3, array('class'=>'form-control', 'required'=>'required', 'id'=>'pontos_equipe_3'));
-            ?>
-        </div>
-        <div class="form-group col-4">
-          <label for="fair_play_3">FAIR PLAY</label>
-          <?php
-          $options = array(0=>'NÃO', 1=>'SIM');
-          echo form_dropdown('fair_play_3', $options, @$jogo->fair_play_3, array('class'=>'form-control', 'required'=>'required', 'id'=>'fair_play_3'));
-          ?>
-        </div>
-        <div class="form-group col-4">
-          <label for="pontos_final_3">PONTOS</label>
-          <input type="number" name="pontos_final_3" id="pontos_final_3" class="form-control" placeholder="<?php echo $placeholder_pontos_final ?>" required="required" value="<?php echo @$jogo->pontos_final_3 ?>" >
-        </div>
+            </div><!-- form-row -->
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label for="pontos_final_1">PONTOS</label>
+                <input type="number" name="pontos_final_1" id="pontos_final_1" class="form-control" placeholder="<?php echo $placeholder_pontos_final ?>" required="required" value="<?php echo @$jogo->pontos_final_1 ?>" >
+              </div><!--col-4-->
+            </div> <!-- row -->
+          </div> <!--card-body--->
+        </div><!--card -->   
+
+
         <?php endif; ?>
       </div><!-- form-inline -->
 
-      <div class="form-row">
-        <?php if($equipe_4): ?>      
-        <legend><?php echo $jogo->nome_equipe_4 ?></legend>
-        <div class="form-group col-4">
-          <label for="pontos_equipe_4">Vencedor</label>
-          <?php
-            $options = array(0=>'NÃO', 3=>'SIM');
-            echo form_dropdown('pontos_equipe_4', $options, @$jogo->pontos_equipe_4, array('class'=>'form-control', 'required'=>'required', 'id'=>'pontos_equipe_4'));
-            ?>
-        </div>
-        <div class="form-group col-4">
-          <label for="fair_play_4">FAIR PLAY</label>
-          <?php
-          $options = array(0=>'NÃO', 1=>'SIM');
-          echo form_dropdown('fair_play_4', $options, @$jogo->fair_play_4, array('class'=>'form-control', 'required'=>'required', 'id'=>'fair_play_4'));
-          ?>
-        </div>
-        <div class="form-group col-4">
-          <label for="pontos_final_4">PONTOS</label>
-          <input type="number" name="pontos_final_4" id="pontos_final_4" class="form-control" placeholder="<?php echo $placeholder_pontos_final ?>" required="required" value="<?php echo @$jogo->pontos_final_4 ?>" >
-        </div>
-        <?php endif; ?>
-      </div><!-- form-inline -->
 
-      <div class="form-row">
-        <?php if($equipe_5): ?>      
-        <legend><?php echo $jogo->nome_equipe_5 ?></legend>
-        <div class="form-group col-4">
-          <label for="pontos_equipe_5">Vencedor</label>
-          <?php
-            $options = array(0=>'NÃO', 3=>'SIM');
-            echo form_dropdown('pontos_equipe_5', $options, @$jogo->pontos_equipe_5, array('class'=>'form-control', 'required'=>'required', 'id'=>'pontos_equipe_5'));
-            ?>
-        </div>
-        <div class="form-group col-4">
-          <label for="fair_play_5">FAIR PLAY</label>
-          <?php
-          $options = array(0=>'NÃO', 1=>'SIM');
-          echo form_dropdown('fair_play_5', $options, @$jogo->fair_play_5, array('class'=>'form-control', 'required'=>'required', 'id'=>'fair_play_5'));
-          ?>
-        </div>
-        <div class="form-group col-4">
-          <label for="pontos_final_5">PONTOS</label>
-          <input type="number" name="pontos_final_5" id="pontos_final_5" class="form-control" placeholder="<?php echo $placeholder_pontos_final ?>" required="required" value="<?php echo @$jogo->pontos_final_5 ?>" >
-        </div>
-        <?php endif; ?>
-      </div><!-- form-inline -->
 
       <div class="form-row">
         <div class="form-group col-12">
