@@ -2,7 +2,7 @@
 <?php 
 
   if(isset($turmas)):
-    $this->table->set_heading('Turma', 'Pontos');
+    $this->table->set_heading('Turma', 'Pontos', 'Editar');
     foreach($turmas as $t):
       $this->table->add_row($t->nome_turma, $t->pontos);
     endforeach;
