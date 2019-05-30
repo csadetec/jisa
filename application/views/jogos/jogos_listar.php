@@ -1,33 +1,44 @@
-<input class="form-control col-md-4" type="search" placeholder="Pesquisar.." aria-label="Pesquisar.." id="myInput" data-list="list-group"
-<?php 
-/*/
-  echo '<pre>';
 
-  print_r($jogos);
+<input class="form-control " type="search" placeholder="Pesquisar.." aria-label="Pesquisar.." id="myInput" data-list="list-group">
+<?php 
+  /*
+  echo '<pre>';
+  print_r($jogos[0]);
   echo '</pre>';
-  /**/
-  if($jogos):
-    $this->table->set_heading('DATA', 'LOCAL', 'EQUIPES', 'PONTOS', 'EDITAR', 'VISUALIZAR');
-    foreach($jogos as $j):
-      $this->table->add_row(set_data($j->data).' - '. $j->horas_inicial, $j->nome_local, 
-        set_nome_equipe($j->nome_equipe_1, $j->nome_equipe_2, $j->nome_equipe_3, $j->nome_equipe_4, $j->nome_equipe_5), 
-        set_nome_equipe($j->pontos_final_1, $j->pontos_final_2, $j->pontos_final_3, $j->pontos_final_4, $j->pontos_final_5),
-        anchor('jogos/editar/'.$j->id_jogo, '<i class="fas fa-edit"></i>', array('title'=>'Editar dados do Jogo')),
-         anchor('jogos/visualizar/'.$j->id_jogo, '<i class="fas fa-eye"></i>', array('title'=>'Visualizar Resultado do  Jogo'))
-    );
-    endforeach;
-    $template = array(
-      'table_open'  => '<table  class="table table-striped">',
-      'tbody_open' => '<tbody id="myTable">',
-    );
-    $this->table->set_template($template);
-    echo $this->table->generate();
-  else:
-    ?>
-    <div class="alert alert-info mt-5" role="alert">
-      Sem Registros!
-    </div>
-    <?php
-  endif;
-?>      
+  /** */
+?>
+<div class="card mt-3"> 
+  <?php if($jogos): ?>
+  <ul id="myList" class="list-group list-group-flush">
+    <?php foreach($jogos as $row): ?>
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-lg-3">
+          <b>DATA: </b><?php echo set_data($row->data) ?><br>
+          <b>LOCAL: </b><?php echo $row->nome_local ?><br>
+          <b>JUÍZ: </b><?php echo $row->nome_juiz ?>
+         
+        </div>
+        <div class="col-lg-6 mt-2">
+          <?php echo '<i>'.set_nome_equipe($row->nome_equipe_1, $row->nome_equipe_2, $row->nome_equipe_3, $row->nome_equipe_4, $row->nome_equipe_5).'</i>' ?>         
+        </div>
+        <div class="col-lg-2 mt-2"> 
+          <?php
+            $id_perfil = $this->session->userdata('id_perfil');
+            if($id_perfil == '1' or $id_perfil == '3'):
+              echo  anchor('jogos/visualizar/'.$row->id_jogo, '<i class="fas fa-eye"></i>', array('title'=>'Visualizar Equipes', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right;')); 
+            endif;
+          ?>
+        </div>
+        <div class="col-lg-1 mt-2" style="float:rigth">
+          <?php echo  anchor('jogos/editar/'.$row->id_jogo, '<i class="fas fa-edit"></i>', array('title'=>'Editar Turma', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%; float:right;' )); ?>
+        </div>
+      
+      </div>    
+    </li>
+    <?php endforeach; ?>
+  </ul>
+  <?php endif; ?>
+</div>
+ 
 

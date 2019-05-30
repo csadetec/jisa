@@ -117,24 +117,7 @@ class Jogos extends CI_Controller {
     
     $data['local'] = $this->locais_model->select_id($id_local);
     if(!$data['local']):
-      
-      $usuario = $this->session->userdata('nome_perfil');
-      /**/
-      if($usuario == 'ADMINISTRADOR' or $usuario == 'COORDENADOR'):
-        $data['page'] = 'jogos/jogos_listar_coordenador';
-      elseif($usuario ==  'JUIZ'):
-        $data['page'] = 'jogos/jogos_listar_juiz';
-      elseif($usuario == 'REPRESENTANTE'):
-        $data['page'] = 'jogos/jogos_listar_representante';
-      endif;
-      
-      /**
-      echo '<pre>';
-      echo '<br>';
-      echo $usuario;
-    //  print_r(@$data['page']);
-      echo '</pre>';
-      /**/
+      $data['page'] = 'jogos/jogos_listar';
       $data['jogos'] = $this->jogos_model->select();
       $data['titulo'] = 'Lista dos Jogos';
       $this->load->view('load', $data, FALSE);
