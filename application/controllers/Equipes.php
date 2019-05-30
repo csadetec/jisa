@@ -24,7 +24,7 @@ class Equipes extends CI_Controller {
   public function listar(){
 
     $data['equipes'] = $this->equipes_model->select();
-    $data['titulo'] = 'Lista das Equipes';
+    $data['titulo'] = 'LISTA DAS EQUIPES';
     $data['page'] = 'equipes/equipes_listar';
     $this->load->view('load', $data, FALSE);
 

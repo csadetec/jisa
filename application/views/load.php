@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <link rel="stylesheet" href="<?php echo base_url('./assets/css/style.css?30052019m') ?> "> 
+  <link rel="stylesheet" href="<?php echo base_url('./assets/css/style.css?30052019mm"') ?> "> 
   <script src="<?php echo base_url("./assets/js/jquery.hideseek.min.js") ?>"></script>  
 </head>
 <body>

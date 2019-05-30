@@ -13,7 +13,7 @@ $(document).ready(function(){
   contar_integrantes();
   function contar_integrantes(){
     var count = $("#alunos_equipe li").length;
-    $("#header_integrantes").text('EQUIPE '+count);
+    $("#header_integrantes").text('QTD '+count);
     
   }  
 

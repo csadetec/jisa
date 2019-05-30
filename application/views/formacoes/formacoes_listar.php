@@ -51,7 +51,7 @@
     </ul>
   </div>
   <div class="col-6">
-    <h4 id="header_integrantes">EQUIPE</h4>
+    <h4 id="header_integrantes"></h4>
     <ul id="alunos_equipe" class="list-group">
       <?php 
       if($alunos_equipe): 
@@ -73,4 +73,4 @@
   <p id="id_equipe" style="display: none;"><?php echo $equipe->id_equipe ?></p>
   <p id="qtd_integrantes" style="display: none;"><?php echo $equipe->qtd_integrantes ?></p>
 </div>
-<script src="<?php echo base_url("./assets/js/formacoes_listar.js?18052019") ?> "></script>
+<script src="<?php echo base_url("./assets/js/formacoes_listar.js?30052019") ?> "></script>

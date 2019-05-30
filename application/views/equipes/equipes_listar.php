@@ -1,31 +1,22 @@
 
 <input class="form-control col-12 mt-3" type="search" placeholder="Pesquisar.." aria-label="Pesquisar.." id="myInput" data-list="list-group"> 
-
-<?php 
-  echo '<pre>';
- // print_r($equipes);
-  echo '</pre>';
-  if($equipes):
-    $this->table->set_heading('Equipe', 'Turma', 'Editar', 'Atleta');
-    foreach($equipes as $e):
-      $this->table->add_row(
-        $e->nome_equipe,  $e->nome_turma, 
-        anchor('equipes/editar/'.$e->id_equipe, '<i class="fas fa-edit"></i>', array('title'=>'Editar dados da Equipe')),
-        anchor('formacoes/adicionar/'.$e->id_equipe, '<i class="fas fa-user-plus"></i>', array('title'=>'Adicionar Alunos na Equipe'))
-      );
-    endforeach;
-    $template = array(
-      'table_open'  => '<table  class="table table-striped">',
-      'tbody_open' => '<tbody id="myTable">',
-    );
-    $this->table->set_template($template);
-    echo $this->table->generate();
-  else:
-    ?>
-    <div class="alert alert-info mt-5" role="alert">
-      Sem Registros!
-    </div>
-    <?php
-  endif;
-?>      
-
+<div class="card mt-3"> 
+  <?php if($equipes): ?>
+  <ul id="myList" class="list-group list-group-flush">
+    <?php foreach($equipes as $row): ?>
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-6 col-lg-3">
+          <?php echo  anchor('equipes/editar/'.$row->id_equipe, $row->nome_equipe, array('title'=>'Editar Equipe', 'class'=>'btn btn-outline-primary btn-block mt-2')); ?>
+        </div>
+       <div class="col-6 col-lg-9 mt-3" style="float:right"> 
+          <?php echo  anchor('formacoes/adicionar/'.$row->id_equipe, '<i class="fas fa-user-plus"></i>', array('title'=>'Adicionar alunos Visualizar Equipes', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right;')); ?>
+        </div>
+      </div>
+    
+    </li>
+    <?php endforeach; ?>
+  </ul>
+  <?php endif; ?>
+</div>
+ 

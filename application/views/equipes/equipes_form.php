@@ -54,7 +54,7 @@
           <div class="form-row">
             <div class="form-group col-md-12">
               <label for="nome_equipe">Nome da Equipe</label>
-              <input type="text" name="nome_equipe" id="nome_equipe" class="form-control" placeholder="Equipe" required="required" autofocus="autofocus" value="<?php echo @$_POST['nome_equipe']?@$_POST['nome_equipe']:@$equipe->nome_equipe ?>" >
+              <input type="text" name="nome_equipe" id="nome_equipe" class="form-control" placeholder="Equipe" required="required" value="<?php echo @$_POST['nome_equipe']?@$_POST['nome_equipe']:@$equipe->nome_equipe ?>" >
             </div>
           </div>
           

@@ -13,27 +13,25 @@
     <?php foreach($jogos as $row): ?>
     <li class="list-group-item">
       <div class="row">
-        <div class="col-lg-3">
-          <b>DATA: </b><?php echo set_data($row->data) ?><br>
-          <b>LOCAL: </b><?php echo $row->nome_local ?><br>
-          <b>JUÍZ: </b><?php echo $row->nome_juiz ?>
-         
-        </div>
-        <div class="col-lg-6 mt-2">
-          <?php echo '<i>'.set_nome_equipe($row->nome_equipe_1, $row->nome_equipe_2, $row->nome_equipe_3, $row->nome_equipe_4, $row->nome_equipe_5).'</i>' ?>         
-        </div>
-        <div class="col-lg-2 mt-2"> 
-          <?php
-            $id_perfil = $this->session->userdata('id_perfil');
-            if($id_perfil == '1' or $id_perfil == '3'):
-              echo  anchor('jogos/visualizar/'.$row->id_jogo, '<i class="fas fa-eye"></i>', array('title'=>'Visualizar Equipes', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right;')); 
-            endif;
+        <div class="col-6 col-lg-4 mt-1">         
+          <?php echo anchor('jogos/visualizar/'.$row->id_jogo, 
+            set_nome_equipe($row->nome_equipe_1, $row->nome_equipe_2, $row->nome_equipe_3, $row->nome_equipe_4, $row->nome_equipe_5),
+           array('class'=>'btn btn-outline-primary btn-block', /*'style'=>'float: right',*/ 'title'=>'Visualizar Jogo '.set_data($row->data).' '.$row->horas_inicial )); 
           ?>
         </div>
-        <div class="col-lg-1 mt-2" style="float:rigth">
-          <?php echo  anchor('jogos/editar/'.$row->id_jogo, '<i class="fas fa-edit"></i>', array('title'=>'Editar Turma', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%; float:right;' )); ?>
-        </div>
-      
+        <div class="col-6 col-lg-8" style="float:right">          
+          <span style="float:right" >
+            <?php
+            $id_perfil = $this->session->userdata('id_perfil');
+            if($id_perfil == '1' or $id_perfil == '3'):
+              echo  anchor('jogos/editar/'.$row->id_jogo, '<i class="fas fa-edit"></i>', array('title'=>'Editar Turma', 'style'=>'border-radius:50%;' )); 
+            endif;
+            ?>
+            <?php echo set_data($row->data).' '.'<b>'.$row->horas_inicial.'</b>'?>
+          </span><br>
+          <span style="float:right" ><?php echo $row->nome_local ?></span><br>
+          <span style="float:right"><?php echo $row->nome_juiz ?></span><br>
+          
       </div>    
     </li>
     <?php endforeach; ?>
