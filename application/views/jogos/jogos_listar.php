@@ -8,15 +8,14 @@
       <div class="row">
         <div class="col-6 col-lg-4 mt-1">      
           <?php $e = null; ?>   
-          <?php echo anchor('jogos/visualizar/'.$row->id_jogo,/* 
-              $e.= $row->nome_equipe_1?$row->nome_equipe_1.'<br>':''.
-              $e.= $row->nome_equipe_2?$row->nome_equipe_2.'<br>':''.
-              $e.=$row->nome_equipe_3?$row->nome_equipe_3.'<br>':''.
-              $e.=$row->nome_equipe_4?$row->nome_equipe_4.'<br>':''.
-              $e.=$row->nome_equipe_5?$row->nome_equipe_5.'<br>':''.
-              $e.='',             */
-              set_nome_equipe($row->nome_equipe_1, $row->nome_equipe_2, $row->nome_equipe_3, $row->nome_equipe_4, $row->nome_equipe_5), 
+          <?php echo anchor('jogos/visualizar/'.$row->id_jogo,
+            set_equipe_pontos($row->nome_equipe_1, $row->pontos_final_1).
+            set_equipe_pontos($row->nome_equipe_2, $row->pontos_final_2).
+            set_equipe_pontos($row->nome_equipe_3, $row->pontos_final_3).
+            set_equipe_pontos($row->nome_equipe_4, $row->pontos_final_4).
+            set_equipe_pontos($row->nome_equipe_5, $row->pontos_final_5),
 
+      
               array('class'=>'btn btn-outline-primary btn-block', /*'style'=>'float: right',*/ 'title'=>'Visualizar Jogo '.set_data($row->data).' '.$row->horas_inicial )); 
           ?>
 

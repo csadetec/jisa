@@ -106,7 +106,14 @@ function set_title($obs){
     return 'Visualizar Jogo';
 }
 /**/
-
+function set_equipe_pontos($e, $p){
+    if($e != '' and $p !='0'){
+        return $e.': '.$p.'<br>';
+    }elseif($e != ''){
+        return $e.'<br>';
+    }
+    return '';
+}
 function set_nome_equipe($e1, $e2, $e3, $e4, $e5){
     $equipe = array($e1, $e2, $e3, $e4, $e5);
     $texto = null;
