@@ -1,7 +1,7 @@
 <?php 
 /**
   echo '<pre>';
- // print_r($jogos_sem_juiz);
+  //print_r($juizes);
   //print_r($juiz_selecionado);
   print_r($juiz_selecionado);
   echo '</pre>;'

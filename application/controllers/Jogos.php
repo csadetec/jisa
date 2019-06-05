@@ -20,7 +20,8 @@ class Jogos extends CI_Controller {
 
   public function juiz($id_juiz=0){
     verifica_admin_coordenador();
-     if($post = $this->input->post()):
+
+    if($post = $this->input->post()):
       $dados = array('id_juiz'=>$post['id_juiz']);
       if($this->jogos_model->update($post['id_jogo'], $dados)):
         echo 'success';

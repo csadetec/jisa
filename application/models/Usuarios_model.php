@@ -11,6 +11,8 @@ class Usuarios_model extends CI_Model {
 		$this->db->select('id_usuario  as id_juiz, nome as nome_juiz');
 		$this->db->from($this->table_usuarios);
 		$this->db->where('id_perfil', '2');
+		$this->db->order_by('nome', 'asc');
+		
 		return $this->db->get()->result();
 	}
 
