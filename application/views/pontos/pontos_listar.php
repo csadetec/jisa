@@ -1,8 +1,8 @@
 <input class="form-control col-12 mt-3" type="search" placeholder="Pesquisar.." aria-label="Pesquisar.." id="myInput" data-list="list-group">
 <?php 
-/*
+/**
   echo '<pre>';
-  print_r($equipes);
+  print_r($turmas);
   echo '</pre>';
   /**/ 
 ?>
@@ -13,7 +13,7 @@
     <li class="list-group-item">
       <?php echo '<h5>'.$row->nome_turma.'</h5>' ?>
       Pontos:  <?php echo $row->pontos ?>
-       <?php echo  anchor('equipes/listar_por_turma/'.$row->id_turma, '<i class="fas fa-eye"></i>', array('title'=>'Visualizar Equipes', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right;')); ?>
+       <?php //echo  anchor('equipes/listar_por_turma/'.$row->id_turma, '<i class="fas fa-eye"></i>', array('title'=>'Visualizar Equipes', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right;')); ?>
     </li>
     <?php endforeach; ?>
   </ul>

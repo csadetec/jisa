@@ -25,7 +25,8 @@
             <?php
             $id_perfil = $this->session->userdata('id_perfil');
             if($id_perfil == '1' or $id_perfil == '3'):
-              echo  anchor('jogos/editar/'.$row->id_jogo, '<i class="fas fa-edit"></i>', array('title'=>'Editar Turma', 'style'=>'border-radius:50%;' )); 
+            //echo  anchor('jogos/editar/'.$row->id_jogo, '<i class="fas fa-edit"></i>', array('title'=>'Editar Jogo', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%')); 
+              echo  anchor('jogos/editar/'.$row->id_jogo, '<i class="fas fa-edit"></i>', array('title'=>'Editar Jogo', 'style'=>'border-radius:50%;' )); 
             endif;
             ?>
             <?php echo set_data($row->data).' '.'<b>'.$row->horas_inicial.'</b>'?>

@@ -12,6 +12,7 @@
 
         </div>
        <div class="col-6 col-lg-9 mt-3" style="float:right"> 
+          <?php echo  anchor('equipes/editar/'.$row->id_equipe, '<i class="fas fa-edit"></i>', array('title'=>'Visualizar Equipes', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right; margin-left:10px')); ?> 
           <?php echo  anchor('formacoes/adicionar/'.$row->id_equipe, '<i class="fas fa-user-plus"></i>', array('title'=>'Adicionar alunos Visualizar Equipes', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right;')); ?>
         </div>
       </div>
