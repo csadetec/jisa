@@ -6,10 +6,10 @@ class Jogos extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model(array('locais_model', 'jogos_model', 'modalidades_model','equipes_model', 'formacoes_model', 'pontos_model', 'usuarios_model'));
-    $this->load->library(array('table','form_validation'));
+    $this->load->library(array('table', 'form_validation'));
    
     verifica_login();
-    //$this->output->enable_profiler(TRUE);
+   // $this->output->enable_profiler(TRUE);
 
   }
 
@@ -113,22 +113,22 @@ class Jogos extends CI_Controller {
   }
 
 
-  public function listar($id_local = null){
+  public function listar(){
     
-    $data['local'] = $this->locais_model->select_id($id_local);
-    if(!$data['local']):
-      $data['page'] = 'jogos/jogos_listar';
-      $data['jogos'] = $this->jogos_model->select();
-      $data['titulo'] = 'Lista dos Jogos';
-      $this->load->view('load', $data, FALSE);
-  
-    else:
+    $data['jogos'] = $this->jogos_model->select();
+    $data['titulo'] = 'JOGOS';
+    $data['page'] = 'jogos/jogos_listar';
+    $this->load->view('load', $data, FALSE);
+ 
+  }
 
-      $data['jogos'] = $this->jogos_model->jogos_por_local($id_local);
-      $data['titulo'] = 'Lista dos Jogos | '.$data['local']->nome_local;
-      $data['page'] = 'jogos/jogos_listar_local';
-      $this->load->view('load', $data, FALSE);
-    endif;
+  public function listar_juiz($id_juiz = null){
+    $jogos = $this->jogos_model->select_jogos_com_juiz_dia($id_juiz);
+    $data['jogos'] = $jogos; 
+    $data['page'] = 'jogos/jogos_listar';
+    $data['titulo'] = 'JOGOS | '.$this->session->userdata('nome');
+    $this->load->view('load', $data, FALSE);
+
   }
 
 

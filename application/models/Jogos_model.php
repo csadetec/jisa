@@ -17,10 +17,37 @@ class Jogos_model extends CI_Model {
 		$this->db->select('field1, field2');
 	}
 
+	public function select_jogos_juiz($id_juiz=0){
+		$this->db->where('id_juiz', $id_juiz);
+		return $this->db->get($this->table_jogos)->result();
+		
+		
+	}
+	public function select_jogos_com_juiz_dia($id_juiz=0){
+		$this->db->select('j.id_jogo , j.data, j.horas_inicial,'
+					.'l.nome_local, u.nome as nome_juiz, j.id_juiz, ' 
+					.'pontos_final_1, pontos_final_2, pontos_final_3, pontos_final_4, pontos_final_5, j.obs,'
+					.'(select nome_equipe from '.$this->table_equipes.' where id_equipe= j.id_equipe_1) as nome_equipe_1, '
+					.'(select nome_equipe from '.$this->table_equipes.' where id_equipe= j.id_equipe_2) as nome_equipe_2, '
+					.'(select nome_equipe from '.$this->table_equipes.' where id_equipe= j.id_equipe_3) as nome_equipe_3, '
+					.'(select nome_equipe from '.$this->table_equipes.' where id_equipe= j.id_equipe_4) as nome_equipe_4, '
+					.'(select nome_equipe from '.$this->table_equipes.' where id_equipe= j.id_equipe_5) as nome_equipe_5');
+		
+
+		$this->db->from($this->table_jogos.' as j');
+		$this->db->join($this->table_locais.' as l', 'j.id_local = l.id_local');
+		$this->db->join($this->table_usuarios.' as u', 'j.id_juiz = u.id_usuario');
+		$this->db->where('j.id_juiz', $id_juiz);
+		$this->db->where('j.data', date('Y-m-d'));
+		
+		$this->db->order_by('data', 'asc');
+		$this->db->order_by('horas_inicial', 'asc');
+		return $this->db->get()->result();
+	}
 	public function select_jogos_com_juiz($id_juiz=0){
 		$this->db->select('j.id_jogo , j.data, j.horas_inicial,'
 					.'l.nome_local, u.nome as nome_juiz, j.id_juiz, ' 
-					.'pontos_final_1, pontos_final_2, pontos_final_3, pontos_final_4, pontos_final_5,'
+					.'pontos_final_1, pontos_final_2, pontos_final_3, pontos_final_4, pontos_final_5, j.obs,'
 					.'(select nome_equipe from '.$this->table_equipes.' where id_equipe= j.id_equipe_1) as nome_equipe_1, '
 					.'(select nome_equipe from '.$this->table_equipes.' where id_equipe= j.id_equipe_2) as nome_equipe_2, '
 					.'(select nome_equipe from '.$this->table_equipes.' where id_equipe= j.id_equipe_3) as nome_equipe_3, '

@@ -141,6 +141,8 @@ class Usuarios extends CI_Controller {
 					$this->session->set_userdata('usuario', $q->usuario);					
 					$this->session->set_userdata('id_perfil', $q->id_perfil);				
 					$this->session->set_userdata('nome_perfil', $q->nome_perfil);	
+					if($q->id_perfil == 2)redirect('jogos/listar_juiz/'.$q->id_usuario);
+					
 					redirect('home');
 					/*
 					echo '<pre>';
@@ -163,7 +165,7 @@ class Usuarios extends CI_Controller {
 	}
 
 	public function sair(){
-		set_msg('Obrigado pela Visita!', 'info');
+		set_msg('Obrigado pela Visita :)', 'info');
 		$this->session->unset_userdata('logged');
 		$this->session->unset_userdata('id_usuario');
 		$this->session->unset_userdata('nome');
@@ -175,6 +177,7 @@ class Usuarios extends CI_Controller {
 
 
 	}
+	
 
 }
 

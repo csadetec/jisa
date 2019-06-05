@@ -21,20 +21,17 @@
 
         </div>
         <div class="col-6 col-lg-8" style="float:right">          
-          <span style="float:right" >
-            <?php
-            $id_perfil = $this->session->userdata('id_perfil');
-            if($id_perfil == '1' or $id_perfil == '3'):
-            //echo  anchor('jogos/editar/'.$row->id_jogo, '<i class="fas fa-edit"></i>', array('title'=>'Editar Jogo', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%')); 
-              echo  anchor('jogos/editar/'.$row->id_jogo, '<i class="fas fa-edit"></i>', array('title'=>'Editar Jogo', 'style'=>'border-radius:50%;' )); 
-            endif;
-            ?>
-            <?php echo set_data($row->data).' '.'<b>'.$row->horas_inicial.'</b>'?>
-          </span><br>
+          <?php
+          $id_perfil = $this->session->userdata('id_perfil');
+          if($id_perfil == '1' or $id_perfil == '3'):
+             echo  anchor('jogos/editar/'.$row->id_jogo, '<i class="fas fa-edit"></i>'.' N° '.$row->id_jogo, array('class'=>'', 'title'=>'Editar Jogo', 'style'=>'float:right; border-radius:50%')).'<br>';              
+          endif;
+          ?>
+          <span style="float:right" ><?php echo set_data($row->data).' '.'<b>'.$row->horas_inicial.'</b>'?></span><br>
           <span style="float:right" ><?php echo $row->nome_local ?></span><br>
           <span style="float:right"><?php echo $row->nome_juiz ?></span><br>
-          <span style="float:right"><?php  echo $row->obs?'OBS: '.$row->obs:''; ?></span>
-          
+          <span style="float:right"><?php  echo $row->obs?'OBS: '.$row->obs:''; ?></span><br>
+                  
       </div>    
     </li>
     <?php endforeach; ?>
