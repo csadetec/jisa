@@ -77,12 +77,6 @@ function rename_turma($turma){
     if($turma == 'F1CET')return 'F1E';
     if($turma == 'F1CFT')return 'F1F';
 
-
-
-
-
-
-
     return '-';
 
 }
@@ -239,7 +233,7 @@ function verifica_admin_coordenador(){
     # 4 - alunos
 
     if($id_perfil == 2):
-        redirect('locais/listar');
+        redirect('jogos/listar_juiz/'.$CI->session->userdata('id_usuario'));
     elseif($id_perfil == 4):
         redirect('jogos/turmas');
     endif;

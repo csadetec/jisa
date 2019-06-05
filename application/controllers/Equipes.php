@@ -75,7 +75,7 @@ class Equipes extends CI_Controller {
     $this->email->set_mailtype("html");
     $this->email->set_newline("\r\n");
 
-    $this->email->to(array('ct.detec@gmail.com', $this->session->userdata('email'), $post['email']));
+    $this->email->to(array('ct.detec@gmail.com',  $post['email']));
     $this->email->from('ct.detec@gmail.com', $this->session->userdata('nome').' - Equipes');
     $this->email->subject( 'Equipes da Turma - '.$equipes[0]->nome_turma);
     $this->email->message($html);

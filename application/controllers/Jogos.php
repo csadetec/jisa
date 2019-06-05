@@ -114,6 +114,7 @@ class Jogos extends CI_Controller {
 
 
   public function listar(){
+    verifica_admin_coordenador();
     
     $data['jogos'] = $this->jogos_model->select();
     $data['titulo'] = 'JOGOS';
@@ -123,6 +124,7 @@ class Jogos extends CI_Controller {
   }
 
   public function listar_juiz($id_juiz = null){
+    verifica_admin_coordenador_juiz();
     $jogos = $this->jogos_model->select_jogos_com_juiz_dia($id_juiz);
     $data['jogos'] = $jogos; 
     $data['page'] = 'jogos/jogos_listar';
