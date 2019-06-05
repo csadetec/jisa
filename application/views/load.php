@@ -23,6 +23,9 @@
     <ul class="navbar-nav mr-auto">
      
       <?php if($this->session->userdata('id_perfil') == 1 or $this->session->userdata('id_perfil') == 3): ?>
+      <li class="nav-item">
+        <?php echo anchor('home', 'DOCUMENTAÇÃO', array('class'=>'nav-link')); ?>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
           TURMAS
@@ -84,7 +87,7 @@
               echo anchor('modalidades/cadastrar', '<i class="fas fa-fw fa-running"></i> Modalidades - Cadastrar', array('class'=>'dropdown-item'));
               echo anchor('modalidades/listar', '<i class="fas fa-fw fa-running"></i> Modalidades - Listar', array('class'=>'dropdown-item'));
               echo anchor('jogos/juiz/0', '<i class="fas fa-fw fa-gamepad"></i> Jogos - Juiz', array('class'=>'dropdown-item'));
-              echo anchor('arquivos/cadastrar', '<i class="fas fa-fw fa-file-excel"></i> Importar Alunos', array('class'=>'dropdown-item'));
+             // echo anchor('arquivos/cadastrar', '<i class="fas fa-fw fa-file-excel"></i> Importar Alunos', array('class'=>'dropdown-item'));
             
             endif;
           ?>
@@ -95,7 +98,7 @@
   </div>  
 </nav>
 
-<div class="container" >
+<div id="conteudo_site" class="container" >
   <?php 
   if ($msg = get_msg()):
   ?>
@@ -106,9 +109,11 @@
   endif;
   ?>
   <div class="row">
-    <div class="col-lg-1"></div>
+    <div id="sidebar" class="col-lg-1">
+      <?php //if(@$sidebar)$this->load->view(@$sidebar); ?>
+    </div>
     <div class="col-lg-10">
-      <h3><?php echo $titulo ?></h3>
+      <h3><?php echo @$titulo ?></h3>
       <h5><?php echo '' ?></h5>
       <?php $this->load->view(@$page); ?>
     </div>

@@ -8,12 +8,14 @@
           <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome" required="required" autofocus="autofocus" value="<?php  echo isset($_POST['nome'])?@$_POST['nome']:@$usuario->nome?>">
         </div>
       </div>
+      <!--
       <div class="form-row">
         <div class="form-group col-md-12">
           <label for="email">Email</label>
           <input type="text" name="email" id="email" class="form-control" placeholder="email" required="required" autofocus="autofocus" value="<?php  echo isset($_POST['email'])?@$_POST['email']:@$usuario->email?>">
         </div>
       </div>
+      <!-- -->
       <div class="form-row">
         <div class="form-group col-md-12">
           <label for="usuario">Usuário</label>

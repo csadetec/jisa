@@ -49,10 +49,12 @@ class Pontos extends CI_Controller {
     endif;
       
     if($buscar == 'equipes'):
+      $data['turmas'] = null;
       $data['equipes'] = $this->pontos_model->select_pontos_equipes();
       $data['titulo'] = 'Lista dos Pontos | Equipes';
     else:
       $data['turmas'] = $this->pontos_model->select_pontos_turmas();
+      $data['equipes'] = null;
       $data['titulo'] = 'Lista dos Pontos | Turmas';
     endif;
   

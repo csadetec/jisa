@@ -103,7 +103,7 @@ class Turmas extends CI_Controller {
   public function listar(){
 
     $data['turmas'] = $this->turmas_model->select();
-    $data['titulo'] = 'Lista de Turmas';
+    $data['titulo'] = 'TURMAS';
     $data['page'] = 'turmas/turmas_listar';
     $this->load->view('load', $data, FALSE);
 

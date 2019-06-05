@@ -48,7 +48,7 @@ class Usuarios extends CI_Controller {
 		
 	
 	
-        $data['titulo'] = 'Usuários - Editar';
+        $data['titulo'] = 'Editar Usuário';
         $data['bread1'] = 'Usuários';
         $data['bread2'] = 'Editar';
 		$data['page'] = 'usuarios/usuarios_form';
@@ -141,7 +141,7 @@ class Usuarios extends CI_Controller {
 					$this->session->set_userdata('usuario', $q->usuario);					
 					$this->session->set_userdata('id_perfil', $q->id_perfil);				
 					$this->session->set_userdata('nome_perfil', $q->nome_perfil);	
-					redirect('jogos/listar');
+					redirect('home');
 					/*
 					echo '<pre>';
 					print_r($_SESSION);
