@@ -14,7 +14,7 @@ class Home extends CI_Controller {
   }
 
   public function index(){
-    $data['titulo'] = 'DOCUMENTAÇÃO';
+    $data['titulo'] = 'TUTORIAL';
     $data['page'] = 'home/home_tutorial';
     $data['sidebar'] = 'home/home_sidebar';
 

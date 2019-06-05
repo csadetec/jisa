@@ -24,7 +24,7 @@
      
       <?php if($this->session->userdata('id_perfil') == 1 or $this->session->userdata('id_perfil') == 3): ?>
       <li class="nav-item">
-        <?php echo anchor('home', 'DOCUMENTAÇÃO', array('class'=>'nav-link')); ?>
+        <?php echo anchor('home', 'TUTOTIAL', array('class'=>'nav-link')); ?>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
