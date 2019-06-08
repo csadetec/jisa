@@ -6,6 +6,13 @@ class Equipes_model extends CI_Model {
 	private $table_equipes = 'jisa_equipes';
 	private $table_turmas = 'jisa_turmas';
 	private $table_modalidades = 'jisa_modalidades';
+	
+	public function select_por_modalidade_id($id_modalidade){
+		$this->db->where('id_modalidade', $id_modalidade);
+		return $this->db->get($this->table_equipes)->result();
+		
+		
+	}
 	public function select(){
 		$this->db->select('e.id_equipe, e.nome_equipe, t.nome_turma');
 		$this->db->from($this->table_equipes.' as e');

@@ -127,4 +127,4 @@
     </div>
   </div>
 </div>
-<script src="<?php echo base_url('./assets/js/jogos_form.js?14') ?> "></script>
+<script src="<?php echo base_url('./assets/js/jogos_form.js?07062019') ?> "></script>

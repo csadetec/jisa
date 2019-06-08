@@ -32,7 +32,10 @@ class Equipes extends CI_Controller {
 
   }
 
-
+  public function listar_por_modalidade_json($id_modalidade = null){
+    $equipes = $this->equipes_model->select_por_modalidade_id($id_modalidade);
+    echo json_encode($equipes);     
+  }
   public function turma_email($id_equipe=0){
     
     if(!$post = $this->input->post()):

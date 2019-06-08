@@ -5,6 +5,18 @@ $(document).ready(function(){
   verifica_modalidade(); 
 
   $("#id_modalidade").change(verifica_modalidade);
+  $("#id_modalidade").change(equipes_modalidade);
+
+  function equipes_modalidade(){
+    var modalidade = $("#id_modalidade option:selected").val();
+    var hostname = window.location.hostname;
+    var url = "http://" + hostname + "/jisa/equipes/listar_por_modalidade_json/" + modalidade;
+
+      $.getJSON(url, function(result){
+        console.log(result)
+      });
+
+  }
 
   function verifica_modalidade(){
     var modalidade = $("#id_modalidade option:selected").val();
@@ -19,7 +31,7 @@ $(document).ready(function(){
       $.getJSON(url, function(result){
       
         qtd_equipes = result.qtd_equipes;
-         console.log(qtd_equipes);
+         console.log(qtd_equipes);  
         qtd_equipes = parseInt(qtd_equipes);
 
         if(qtd_equipes > 2){

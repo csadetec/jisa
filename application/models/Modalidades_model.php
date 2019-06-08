@@ -9,7 +9,7 @@ class Modalidades_model extends CI_Model {
 		$this->db->order_by('nome_modalidade', 'asc');
 		return $this->db->get($this->table_modalidades)->result();
 	}
-	
+
 	public function select_id($id_modalidade){
 	
 		$this->db->where('id_modalidade', $id_modalidade);

@@ -1,3 +1,5 @@
+##add column with default
+alter table jisa_jogos add column status_jogo int DEFAULT 1
 ### Distribuição linux ###
 cat /etc/*-release
 
