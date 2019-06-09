@@ -142,8 +142,12 @@ class Jogos extends CI_Controller {
     $this->form_validation->set_rules('horas_inicial', 'HORAS', 'trim|required');
     $this->form_validation->set_rules('id_local', 'DATA', 'trim|required');
     $this->form_validation->set_rules('id_modalidade', 'MODALIDADES', 'trim|required');
-    /*
+    
     $this->form_validation->set_rules('id_equipe_1', 'EQUIPE 1', 'trim|required');
+    $this->form_validation->set_rules('id_equipe_2', 'EQUIPE 2', 'trim|required');
+    /*
+    $this->form_validation->set_rules('id_equipe_2', 'EQUIPE 2', 'trim|required');
+    $this->form_validation->set_rules('id_equipe_2', 'EQUIPE 2', 'trim|required');
     $this->form_validation->set_rules('id_equipe_2', 'EQUIPE 2', 'trim|required');
     /**/
     if($this->form_validation->run() == false):
