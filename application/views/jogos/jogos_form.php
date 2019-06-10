@@ -6,7 +6,7 @@
   echo '</pre>';
 ?>
 <div class="card card-register mt-5">
-  <div class="card-header">Dados do Jogo</div>
+<div class="card-header">DADOS DO JOGO <span id="idJogo"><?php echo @$jogo->id_jogo?></span> <button id="btnExcluirJogo" style="float:right; margin-bottom: -9px; display:none" class="btn btn-danger"><i class="fas fa-trash"></i> Excluir Jogo</button></div>
   <div class="card-body">
     <div class="row">
       <div class="col-md-12">
@@ -41,7 +41,7 @@
                 foreach($modalidades as $m):
                   $options[$m->id_modalidade] = $m->nome_modalidade;
                 endforeach;
-                echo form_dropdown('id_modalidade', $options, @$jogo->id_modalidade, array('class'=>'form-control', 'required'=>'required', 'id'=>'id_modalidade'));
+                echo form_dropdown('id_modalidade', $options, @$jogo->id_modalidade, array('class'=>'form-control', 'required'=>'required', 'id'=>'id_modalidade', @$disabled=>'true'));
                               ?>
               </div>
               <input type="hidden" id="qtd_equipes" value="">

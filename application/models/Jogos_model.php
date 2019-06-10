@@ -13,6 +13,12 @@ class Jogos_model extends CI_Model {
 		return $this->db->truncate($this->table_jogos);
 	}
 
+	public function delete($id_jogo = null){
+		$this->db->where('id_jogo', $id_jogo);
+		return $this->db->delete($this->table_jogos);
+		
+		
+	}
 	public function select_equipes_por_turma(){
 		$this->db->select('field1, field2');
 	}

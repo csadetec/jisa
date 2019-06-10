@@ -2,11 +2,52 @@ $(document).ready(function(){
   $("#div_3").hide();
   $("#div_4").hide();
   $("#div_5").hide();
-  verifica_modalidade(); 
-
   $("#id_modalidade").change(verifica_modalidade);
   $("#id_modalidade").change(equipes_modalidade);
 
+  
+  
+  verifica_modalidade(); 
+  showBtnExcluir();
+
+  $("#btnExcluirJogo").click(function(){
+    var resposta = prompt('EXCLUIR JOGO?! \n\n Confirme o Número do Jogo: ');
+    var idJogo = $("#idJogo").text();
+    //console.log('clic')
+    if(resposta == idJogo){
+      //console.log('excluir jogo');
+      var hostname = window.location.hostname;
+      var obj = {idJogo:idJogo};
+      $.ajax({
+        type:"POST",
+        url: 'http://'+hostname+'/jisa/jogos/excluir',
+        data: obj,
+        beforeSend: function() {
+          $("#btnExcluirJogo").html('<i class="fas fa-sync"></i> Excluindo...').attr("disabled", "disabled");
+        },
+        success: function(data){
+          if(data == 'success'){
+            alert('Jogo excluído com Sucesso');
+            window.location.reload();
+          }else{
+            alert('Erro ao deletar o Jogo!');
+          }
+        }
+      });
+    }else{
+      console.log('jogo diferente');
+    }
+  });
+
+
+
+  function showBtnExcluir(){
+    var title = $('title').text();
+    if(title == 'EDITAR JOGO'){
+      $("#btnExcluirJogo").show();
+    }
+    console.log(title);
+  }
   function equipes_modalidade(){
     var modalidade = $("#id_modalidade option:selected").val();
     var hostname = window.location.hostname;
@@ -65,14 +106,14 @@ $(document).ready(function(){
     var url = "http://"+hostname+"/jisa/modalidades/listar_json/"+modalidade;
     var qtd_equipes;
 
-    console.log(url);
+   // console.log(url);
 
     if(modalidade != ''){
 
       $.getJSON(url, function(result){
       
         qtd_equipes = result.qtd_equipes;
-         console.log(qtd_equipes);  
+     //    console.log(qtd_equipes);  
         qtd_equipes = parseInt(qtd_equipes);
 
         if(qtd_equipes > 2){

@@ -191,8 +191,6 @@ class Jogos extends CI_Controller {
     $this->form_validation->set_rules('data', 'DATA', 'trim|required');
     $this->form_validation->set_rules('horas_inicial', 'DATA', 'trim|required');
     $this->form_validation->set_rules('id_local', 'LOCAL', 'trim|required');
-    $this->form_validation->set_rules('id_modalidade', 'MODALIDADES', 'trim|required');
-  
     
     if($this->form_validation->run() == false):
       if(validation_errors()):
@@ -217,7 +215,7 @@ class Jogos extends CI_Controller {
     $data['equipes'] = $this->equipes_model->select();
     $data['locais'] = $this->locais_model->select();
     $data['modalidades'] = $this->modalidades_model->select();
-    $data['titulo'] = 'Editar Jogo';
+    $data['titulo'] = 'EDITAR JOGO';
     $data['page'] = 'jogos/jogos_form';
     $data['action'] = 'jogos/editar/'.$id_jogo;
     $data['btn_value'] = 'SALVAR';
@@ -228,6 +226,18 @@ class Jogos extends CI_Controller {
 
   }
 
+  public function excluir(){
+    $post = $this->input->post();
+    if($post){
+      $id_jogo = $post['idJogo'];
+      if($this->jogos_model->delete($id_jogo)){
+        echo 'success';
+      }else{
+        'fail';
+      }
+
+    }
+  }
  
 
 }
