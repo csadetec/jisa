@@ -1,4 +1,6 @@
-<p>Lista dos Usuários</p>
+<?php echo anchor('usuarios/cadastrar', '<i class="fas fa-plus"></i> Cadastrar Usuário', array('style'=>'float:right; margin-bottom:10px;', 'class'=>'btn btn-success')); ?>
+<input class="form-control col-12 mt-3 mb-3" type="search" placeholder="Pesquisar.." aria-label="Pesquisar.." id="myInput" data-list="list-group"> 
+
 <?php 
   if($usuarios):
     $this->table->set_heading('Nome', 'Usuário', 'Perfil', 'Editar');

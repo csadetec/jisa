@@ -7,8 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <link rel="stylesheet" href="<?php echo base_url('./assets/css/style.css?30052019mm"') ?> "> 
-  <script src="<?php echo base_url("./assets/js/jquery.hideseek.min.js") ?>"></script>  
+  <link rel="stylesheet" href="<?php echo base_url('./assets/css/style.css?10062019"') ?> "> 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg  navbar-dark fixed-top" style="background-color: #563d7c ">
@@ -24,43 +23,16 @@
      
       <?php if($this->session->userdata('id_perfil') == 1 or $this->session->userdata('id_perfil') == 3): ?>
       <li class="nav-item">
-        <?php echo anchor('home', 'TUTORIAL', array('class'=>'nav-link')); ?>
+        <?php echo anchor('turmas/listar', 'TURMAS', array('class'=>'nav-link')); ?>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-          TURMAS
-        </a>
-        <div class="dropdown-menu">
-          <?php echo anchor('turmas/listar', 'Listar', array('class'=>'dropdown-item'));?>
-          <?php echo anchor('turmas/cadastrar', 'Cadastrar', array('class'=>'dropdown-item'));?>                   
-        </div>
-      </li>  
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-          EQUIPES
-        </a>
-        <div class="dropdown-menu">
-          <?php echo anchor('equipes/listar', 'Listar', array('class'=>'dropdown-item'));?>
-          <?php echo anchor('equipes/cadastrar', 'Cadastrar', array('class'=>'dropdown-item'));?>                   
-        </div>
-      </li>  
-  	  <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-          JOGOS
-        </a>
-        <div class="dropdown-menu">
-          <?php echo anchor('jogos/listar', 'Listar', array('class'=>'dropdown-item'));?>
-          <?php echo anchor('jogos/cadastrar', 'Cadastrar', array('class'=>'dropdown-item'));?>                   
-        </div>
-      </li>   
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-          PONTOS
-        </a>
-        <div class="dropdown-menu">
-          <?php echo anchor('pontos/listar/turmas', 'Turmas', array('class'=>'dropdown-item'));?>
-          <?php echo anchor('pontos/listar/equipes', 'Equipes', array('class'=>'dropdown-item'));?>                   
-        </div>
+      <li class="nav-item">
+        <?php echo anchor('equipes/listar', 'EQUIPES', array('class'=>'nav-link')); ?>
+      </li>
+      <li class="nav-item">
+        <?php echo anchor('jogos/listar', 'JOGOS', array('class'=>'nav-link')); ?>
+      </li>
+      <li class="nav-item">
+        <?php echo anchor('pontos/listar/turmas', 'PONTOS', array('class'=>'nav-link')); ?>
       </li>  
       <?php endif; ?> 
       <!--
@@ -79,13 +51,11 @@
           <p class="dropdown-item"><?php echo $this->session->userdata('nome_perfil') ?></p>
           <div class="dropdown-divider"></div> 
           <?php
-            if($this->session->userdata('id_perfil') == 1):
-              echo anchor('usuarios/cadastrar', '<i class="fas fa-fw fa-user"></i> Usuários - Cadastrar', array('class'=>'dropdown-item'));
-              echo anchor('usuarios/listar', '<i class="fas fa-fw fa-user"></i> Usuários - Listar', array('class'=>'dropdown-item'));
-              echo anchor('locais/cadastrar', '<i class="fas fa-fw fa-map"></i> Locais - Cadastrar', array('class'=>'dropdown-item'));
-              echo anchor('locais/listar', '<i class="fas fa-fw fa-map"></i> Locais - Listar', array('class'=>'dropdown-item'));
-              echo anchor('modalidades/cadastrar', '<i class="fas fa-fw fa-running"></i> Modalidades - Cadastrar', array('class'=>'dropdown-item'));
-              echo anchor('modalidades/listar', '<i class="fas fa-fw fa-running"></i> Modalidades - Listar', array('class'=>'dropdown-item'));
+            if($this->session->userdata('id_perfil') == 1 or $this->session->userdata('id_perfil') == 3):
+              echo anchor('home', '<i class="fas fa-fw fa-book"></i> Tutorial', array('class'=>'dropdown-item'));
+              echo anchor('usuarios/listar', '<i class="fas fa-fw fa-user"></i> Usuários', array('class'=>'dropdown-item'));
+              echo anchor('modalidades/listar', '<i class="fas fa-fw fa-running"></i> Modalidades', array('class'=>'dropdown-item'));
+              echo anchor('locais/listar', '<i class="fas fa-fw fa-map"></i> Locais', array('class'=>'dropdown-item'));
               echo anchor('jogos/juiz/0', '<i class="fas fa-fw fa-gamepad"></i> Jogos - Juiz', array('class'=>'dropdown-item'));
              // echo anchor('arquivos/cadastrar', '<i class="fas fa-fw fa-file-excel"></i> Importar Alunos', array('class'=>'dropdown-item'));
             

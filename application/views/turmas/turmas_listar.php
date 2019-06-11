@@ -1,4 +1,6 @@
+<?php echo anchor('turmas/cadastrar', '<i class="fas fa-plus"></i> Cadastrar Turma', array('style'=>'float:right; margin-bottom:10px;', 'class'=>'btn btn-success')); ?>
 <input class="form-control col-12 mt-3" type="search" placeholder="Pesquisar.." aria-label="Pesquisar.." id="myInput" data-list="list-group"> 
+
 <div class="card mt-3"> 
   <?php if($turmas): ?>
   <ul id="myList" class="list-group list-group-flush">

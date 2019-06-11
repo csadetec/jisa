@@ -1,4 +1,4 @@
-
+<?php echo anchor('jogos/cadastrar', '<i class="fas fa-plus"></i> Cadastrar Jogo', array('style'=>'float:right; margin-bottom:10px;', 'class'=>'btn btn-success')); ?>
 <input class="form-control " type="search" placeholder="Pesquisar.." aria-label="Pesquisar.." id="myInput" data-list="list-group">
 <div class="card mt-3"> 
   <?php if($jogos): ?>

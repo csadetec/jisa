@@ -1,3 +1,4 @@
+<?php echo anchor('modalidades/cadastrar', '<i class="fas fa-plus"></i> Cadastrar Modalidade', array('style'=>'float:right; margin-bottom:10px;', 'class'=>'btn btn-success')); ?>
 <input class="form-control col-12 mt-3" type="search" placeholder="Pesquisar.." aria-label="Pesquisar.." id="myInput" data-list="list-group"> 
 <?php 
   if($modalidades):

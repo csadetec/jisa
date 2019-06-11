@@ -108,7 +108,7 @@ class Usuarios extends CI_Controller {
 		verifica_login();
 		verifica_admin_coordenador();
 
-        $data['titulo'] = 'Usuários - Listar';
+        $data['titulo'] = 'USUÁRIOS';
         $data['bread1'] = 'Usuários';
         $data['bread2'] = 'Listar';
 		$data['page'] = 'usuarios/usuarios_listar';

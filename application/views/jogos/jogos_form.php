@@ -5,7 +5,7 @@
   //print_r($_POST);
   echo '</pre>';
 ?>
-<div class="card card-register mt-5">
+<div class="card card-register">
 <div class="card-header">DADOS DO JOGO <span id="idJogo"><?php echo @$jogo->id_jogo?></span> <button id="btnExcluirJogo" style="float:right; margin-bottom: -9px; display:none" class="btn btn-danger"><i class="fas fa-trash"></i> Excluir Jogo</button></div>
   <div class="card-body">
     <div class="row">

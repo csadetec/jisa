@@ -20,7 +20,7 @@
   <div class="col-6  mt-3">
       <?php 
       $options = null;
-      $options[NULL] =  '<i  class="fas fa-check-circle" style="font-size: 20px; margin-top: 8px;"></i> IR NA EQUIPE';
+      $options[NULL] =  '<i  class="fas fa-check-circle" style="font-size: 20px; margin-top: 8px;"></i> TODAS EQUIPES';
       foreach($equipes as $e):
         $options[$e->id_equipe] = $e->nome_equipe;
       endforeach;

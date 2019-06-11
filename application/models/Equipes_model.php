@@ -14,7 +14,9 @@ class Equipes_model extends CI_Model {
 		
 	}
 	public function select(){
-		$this->db->select('e.id_equipe, e.nome_equipe, t.nome_turma');
+		$this->db->select('e.id_equipe, e.nome_equipe, t.nome_turma, '
+		.'(select count(id_equipe) from jisa_formacoes where id_equipe = e.id_equipe) as qtd'
+		);
 		$this->db->from($this->table_equipes.' as e');
 		$this->db->join($this->table_turmas.' as t', 'e.id_turma = t.id_turma');
 		$this->db->order_by('e.nome_equipe');

@@ -26,7 +26,7 @@
             </div> 
           </div>
           <div id="horarios" class="form-row">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
               <label for="id_modalidade">Modalidade</label>
               <?php
               $options = null;
@@ -37,9 +37,7 @@
               echo form_dropdown('id_modalidade', $options, @$_POST['id_modalidade']?@$_POST['id_modalidade']:@$equipe->id_modalidade, array('class'=>'form-control', 'required'=>'required', 'id'=>'id_modalidade'));
               ?>
             </div> 
-          </div>
-          <div  class="form-row">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
               <label for="id_genero">Gênero</label>
               <?php
               $options = null;
@@ -49,7 +47,7 @@
               endforeach;
               echo form_dropdown('id_genero', $options, @$_POST['id_genero']?@$_POST['id_genero']:@$equipe->id_genero, array('class'=>'form-control', 'required'=>'required', 'id'=>'id_genero'));
               ?>
-            </div> 
+            </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-12">
