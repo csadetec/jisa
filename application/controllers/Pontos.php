@@ -69,10 +69,12 @@ class Pontos extends CI_Controller {
 
   }
 
-  /*
+  
   public function editar($id=0)
-  {
-    $data['aluno'] = $this->alunos_model->select_id($id);
+  {	
+	echo 'editar pontos da turma';
+	 /*
+    $data['turma'] = $this->alunos_model->select_id($id);
     if(!$data['aluno'] || !$id)redirect('alunos/listar');
   
     if($post = $this->input->post()):
@@ -90,7 +92,7 @@ class Pontos extends CI_Controller {
     $data['btn_value'] = 'SALVAR';
 
     $this->load->view('load', $data, FALSE);
-
+	/**/
 
   }
   /**/

@@ -8,12 +8,13 @@
 ?>
 <div class="card mt-3"> 
   <?php if($turmas): ?>
+  
   <ul id="myList" class="list-group list-group-flush">
     <?php foreach($turmas as $row): ?>
     <li class="list-group-item">
       <?php echo '<h5>'.$row->nome_turma.'</h5>' ?>
       Pontos:  <?php echo $row->pontos ?>
-       <?php //echo  anchor('equipes/listar_por_turma/'.$row->id_turma, '<i class="fas fa-eye"></i>', array('title'=>'Visualizar Equipes', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right;')); ?>
+       <?php echo  anchor('pontos/editar/'.$row->id_turma, '<i class="fas fa-edit"></i>', array('title'=>'Editar pontos da Turma', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right;')); ?>
     </li>
     <?php endforeach; ?>
   </ul>
