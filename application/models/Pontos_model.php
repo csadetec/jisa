@@ -15,6 +15,8 @@ class Pontos_model extends CI_Model {
 		return $this->db->truncate($this->table_pontos);
 	}
 
+
+
 	public function select_pontos_equipes(){
 		$this->db->select('p.nome_equipe, sum(p.pontos) as pontos, t.nome_turma, m.nome_modalidade');
 		$this->db->from($this->table_pontos.' as p');
@@ -35,6 +37,14 @@ class Pontos_model extends CI_Model {
 		$this->db->group_by('nome_turma');
 		$this->db->order_by('pontos', 'desc');
 		return $this->db->get()->result();
+
+	}
+	
+	public function select_pontos_turma_id($id_turma=null){
+		$this->db->select('id_turma, nome_turma, sum(pontos) as pontos');
+		$this->db->from($this->table_pontos);
+		$this->db->where('id_turma', $id_turma);
+		return $this->db->get()->row();
 
 	}
 

@@ -143,7 +143,7 @@ class Usuarios extends CI_Controller {
 					$this->session->set_userdata('nome_perfil', $q->nome_perfil);	
 					if($q->id_perfil == 2)redirect('jogos/listar_juiz/'.$q->id_usuario);
 					
-					redirect('home');
+					redirect('jogos/listar');
 					/*
 					echo '<pre>';
 					print_r($_SESSION);

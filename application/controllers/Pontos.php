@@ -5,8 +5,8 @@ class Pontos extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model(array('pontos_model'));
-    $this->load->library('table');
+		$this->load->model(array('pontos_model','pontos_change_model', 'turmas_model'));
+    $this->load->library(array('table','form_validation'));
    
     verifica_login();
     verifica_admin_coordenador();
@@ -54,6 +54,10 @@ class Pontos extends CI_Controller {
       $data['titulo'] = 'Lista dos Pontos | Equipes';
     else:
       $data['turmas'] = $this->pontos_model->select_pontos_turmas();
+	  echo '<pre>';
+	  echo '<br>';
+	  print_r($data['turmas']);
+	  echo '</pre>';
       $data['equipes'] = null;
       $data['titulo'] = 'Lista dos Pontos | Turmas';
     endif;
@@ -65,38 +69,102 @@ class Pontos extends CI_Controller {
 
   }
 
-  public function cadastrar(){
-
-  }
-
+	/*
+	public function cadastrar($id_turma){
+			//echo 'editar pontos da turma';
+	 
+		$turma = $this->pontos_model->select_pontos_turma_id($id_turma);
+		//print_r($turma);
+		
+		if(!$turma || !$id_turma)redirect('pontos/listar');
   
-  public function editar($id=0)
-  {	
-	echo 'editar pontos da turma';
-	 /*
-    $data['turma'] = $this->alunos_model->select_id($id);
-    if(!$data['aluno'] || !$id)redirect('alunos/listar');
+		$post = $this->input->post();
+		print_r($post);
+		/**
+		if($this->alunos_model->update($id, $post)):
+			set_msg('Atualizado com Sucesso', 'success');
+			redirect('pontos/listar/');
+		else:
+			set_msg('Falha ao atualizar', 'danger');
+		endif;
+		/**
+		$data['turma'] = $turma;
+		$data['titulo'] = 'EDITAR PONTOS';
+		$data['page'] = 'pontos/pontos_form';
+		$data['action'] = 'pontos/editar/'.$id_turma;
+		$data['btn_value'] = 'SALVAR';
+
+		$this->load->view('load', $data, FALSE);
+
+	
+	}
+	*/
   
-    if($post = $this->input->post()):
-      if($this->alunos_model->update($id, $post)):
-        set_msg('Atualizado com Sucesso', 'success');
-        redirect('alunos/listar/'.$id);
-      else:
-        set_msg('Falha ao atualizar', 'danger');
-      endif;
-    endif;
+	public function editar($id_turma=0)
+	{	
+		//echo 'editar pontos da turma';
+	 
+		$turma = $this->pontos_model->select_pontos_turma_id($id_turma);
+		//print_r($turma);
+		
+		if(!$turma || !$id_turma)redirect('pontos/listar');
+		
+		$this->form_validation->set_rules('pontos_diferenca', 'DIFERANÇA DE PONTOS', 'trim|required|integer');
+			
+		if ($this->form_validation->run() == FALSE):
+			if(validation_errors()):
+				set_msg(validation_errors(), 'danger');
+			endif;
+		else:
+		
+			$post = $this->input->post();
+			$post['id_turma'] = $id_turma;
+			
+			/*
+			echo '<pre>';
+			echo '<br>';
+			print_r($post);		
+			echo '</pre>';
+			/**/
+			if($this->pontos_change_model->select_id_turma($id_turma)):
+				//insert pontos_change
+				if($this->pontos_change_model->insert($post)):
+					set_msg('Cadastrado com Sucesso', 'success');
+					redirect('pontos/listar/');
+				else:
+					set_msg('Falha ao Cadastrar', 'danger');
+				endif;
+				
+			else:
+				//update pontos_change
+				if($this->pontos_change_model->update($id_turma, $post)):
+					set_msg('Atualizado com Sucesso', 'success');
+					redirect('pontos/listar/');
+				else:
+					set_msg('Falha ao atualizar', 'danger');
+				endif;
+			/**/
+			endif;
+			
+			
+		endif;
+		/**
+			if($this->alunos_model->update($id, $post)):
+				set_msg('Atualizado com Sucesso', 'success');
+				redirect('pontos/listar/');
+			else:
+				set_msg('Falha ao atualizar', 'danger');
+			endif;
+			/**/
+			$data['turma'] = $turma;
+			$data['titulo'] = 'EDITAR PONTOS';
+			$data['page'] = 'pontos/pontos_form';
+			$data['action'] = 'pontos/editar/'.$id_turma;
+			$data['btn_value'] = 'SALVAR';
 
-    $data['titulo'] = 'Aluno Editar';
-    $data['page'] = 'alunos/alunos_form';
-    $data['action'] = 'alunos/editar/'.$id;
-    $data['btn_value'] = 'SALVAR';
-
-    $this->load->view('load', $data, FALSE);
-	/**/
-
-  }
-  /**/
-
+			$this->load->view('load', $data, FALSE);
+		/**/
+	}
 }
 
 /* End of file Alunos.php */
