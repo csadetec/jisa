@@ -10,7 +10,7 @@ class Pontos extends CI_Controller {
    
     verifica_login();
     verifica_admin_coordenador();
-    //$this->output->enable_profiler(TRUE);
+  //  $this->output->enable_profiler(TRUE);
 
   }
 
@@ -54,12 +54,14 @@ class Pontos extends CI_Controller {
       $data['titulo'] = 'Lista dos Pontos | Equipes';
     else:
       $data['turmas'] = $this->pontos_model->select_pontos_turmas();
+	  /*
 	  echo '<pre>';
 	  echo '<br>';
 	  print_r($data['turmas']);
 	  echo '</pre>';
+	  /**/
       $data['equipes'] = null;
-      $data['titulo'] = 'Lista dos Pontos | Turmas';
+      $data['titulo'] = 'PONTOS | TURMAS';
     endif;
   
     $data['page'] = 'pontos/pontos_listar';
@@ -69,36 +71,7 @@ class Pontos extends CI_Controller {
 
   }
 
-	/*
-	public function cadastrar($id_turma){
-			//echo 'editar pontos da turma';
-	 
-		$turma = $this->pontos_model->select_pontos_turma_id($id_turma);
-		//print_r($turma);
-		
-		if(!$turma || !$id_turma)redirect('pontos/listar');
-  
-		$post = $this->input->post();
-		print_r($post);
-		/**
-		if($this->alunos_model->update($id, $post)):
-			set_msg('Atualizado com Sucesso', 'success');
-			redirect('pontos/listar/');
-		else:
-			set_msg('Falha ao atualizar', 'danger');
-		endif;
-		/**
-		$data['turma'] = $turma;
-		$data['titulo'] = 'EDITAR PONTOS';
-		$data['page'] = 'pontos/pontos_form';
-		$data['action'] = 'pontos/editar/'.$id_turma;
-		$data['btn_value'] = 'SALVAR';
 
-		$this->load->view('load', $data, FALSE);
-
-	
-	}
-	*/
   
 	public function editar($id_turma=0)
 	{	
@@ -128,20 +101,20 @@ class Pontos extends CI_Controller {
 			/**/
 			if($this->pontos_change_model->select_id_turma($id_turma)):
 				//insert pontos_change
+				if($this->pontos_change_model->update($id_turma, $post)):
+					set_msg('Atualizado com Sucesso', 'success');
+					redirect('pontos/listar/');
+				else:
+					set_msg('Falha ao Atualizar', 'danger');
+				endif;
+				
+			else:
+				//update pontos_change
 				if($this->pontos_change_model->insert($post)):
 					set_msg('Cadastrado com Sucesso', 'success');
 					redirect('pontos/listar/');
 				else:
 					set_msg('Falha ao Cadastrar', 'danger');
-				endif;
-				
-			else:
-				//update pontos_change
-				if($this->pontos_change_model->update($id_turma, $post)):
-					set_msg('Atualizado com Sucesso', 'success');
-					redirect('pontos/listar/');
-				else:
-					set_msg('Falha ao atualizar', 'danger');
 				endif;
 			/**/
 			endif;

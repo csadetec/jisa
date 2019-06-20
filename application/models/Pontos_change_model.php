@@ -11,7 +11,7 @@ class Pontos_change_model extends CI_Model {
 	}
 
 	public function insert($dados){
-		$this->db->insert($this->table_pontos, $dados);
+		$this->db->insert($this->pontos_change, $dados);
 		return $this->db->insert_id();
 	}
 	

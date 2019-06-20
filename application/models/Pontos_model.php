@@ -8,6 +8,8 @@ class Pontos_model extends CI_Model {
     private $table_equipes = 'jisa_equipes';
     private $table_modalidades='jisa_modalidades';
     private $table_turmas='jisa_turmas';
+	private $pontos_change = 'jisa_pontos_change';
+
 
 
 
@@ -32,8 +34,10 @@ class Pontos_model extends CI_Model {
 	}
 
 	public function select_pontos_turmas(){
-		$this->db->select('id_turma, nome_turma, sum(pontos) as pontos');
-		$this->db->from($this->table_pontos);
+		$this->db->select('p.id_turma, p.nome_turma, sum(p.pontos) as pontos'
+		.', pontos_diferenca');
+		$this->db->from($this->table_pontos.' as p');
+		$this->db->join($this->pontos_change. ' as c', 'p.id_turma = c.id_turma', 'left');
 		$this->db->group_by('nome_turma');
 		$this->db->order_by('pontos', 'desc');
 		return $this->db->get()->result();
@@ -41,8 +45,10 @@ class Pontos_model extends CI_Model {
 	}
 	
 	public function select_pontos_turma_id($id_turma=null){
-		$this->db->select('id_turma, nome_turma, sum(pontos) as pontos');
-		$this->db->from($this->table_pontos);
+		$this->db->select('p.id_turma, p.nome_turma, sum(p.pontos) as pontos');
+		$this->db->from($this->table_pontos.' as p');
+		$this->db->inner($this->pontos_change.' as c', ');
+		
 		$this->db->where('id_turma', $id_turma);
 		return $this->db->get()->row();
 
