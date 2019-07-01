@@ -103,7 +103,9 @@ class Jogos_model extends CI_Model {
 		$this->db->from($this->table_jogos.' as j');
 		$this->db->join($this->table_locais.' as l', 'j.id_local = l.id_local');
 		$this->db->join($this->table_usuarios.' as u', 'j.id_juiz = u.id_usuario', 'left');
-		$this->db->order_by('data', 'asc');
+		//$this->db->order_by('UNIX_TIMESTAMP(j.data)', 'asc');
+	
+		$this->db->order_by('j.data', 'asc');
 		$this->db->order_by('horas_inicial', 'asc');
 		return $this->db->get()->result();
 	}

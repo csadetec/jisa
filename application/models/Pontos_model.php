@@ -34,15 +34,15 @@ class Pontos_model extends CI_Model {
 	}
 
 	public function select_pontos_turmas(){
-		$this->db->select('p.id_turma, p.nome_turma, sum(p.pontos) as pontos'
-		.', pontos_diferenca');
+		$this->db->select('p.id_turma, p.nome_turma, sum(p.pontos) as pontos');
 		$this->db->from($this->table_pontos.' as p');
-		$this->db->join($this->pontos_change. ' as c', 'p.id_turma = c.id_turma', 'left');
+	//	$this->db->join($this->pontos_change. ' as c', 'p.id_turma = c.id_turma', 'left');
 		$this->db->group_by('nome_turma');
 		$this->db->order_by('pontos', 'desc');
 		return $this->db->get()->result();
 
 	}
+	/*
 	
 	public function select_pontos_turma_id($id_turma=null){
 		$this->db->select('p.id_turma, p.nome_turma, sum(p.pontos) as pontos');
@@ -53,7 +53,7 @@ class Pontos_model extends CI_Model {
 		return $this->db->get()->row();
 
 	}
-
+	/** */
 
 	public function select_pontos_id_equipe_1(){
 		$this->db->select('j.id_equipe_1 as id_equipe, t.id_turma, t.nome_turma, e.nome_equipe,'

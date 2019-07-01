@@ -1,8 +1,11 @@
 <?php 
   echo '<pre>';
-//    print_r($modalidades);
- // print_r(@$jogo);
-  //print_r($_POST);
+  /*
+  print_r($juizes);
+  
+  print_r(@$jogo);
+  print_r($_POST);
+  /**/
   echo '</pre>';
 ?>
 <div class="card card-register">
@@ -11,6 +14,8 @@
     <div class="row">
       <div class="col-md-12">
         <?php echo form_open_multipart($action, array('id'=>'form'));?>
+
+          <!-- inputs data e horas -->
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="data">Data</label>
@@ -21,6 +26,30 @@
               <input type="time" name="horas_inicial" id="horas_inicial" class="form-control" placeholder="Horas" required="required" value="<?php echo @$jogo->horas_inicial ?>" >
             </div>
           </div>
+          
+          <!-- inputs data e horas FIM -->
+
+          <!-- input juiz, so aparace para ediçoes de jogos -->
+          <?php if(@$disabled == 'disabled'): ?>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="id_juiz">JUIZ</label>
+              <?php
+                $options = null;
+                $options[null] = 'SELECIONE';
+                foreach($juizes as $row):
+                  $options[$row->id_juiz] = $row->nome_juiz;
+                endforeach;
+                echo form_dropdown('id_juiz', $options, @$jogo->id_juiz, array('class'=>'form-control',  'id'=>'id_juiz'));
+              ?>
+            </div>
+          </div>
+          <?php endif; ?>
+
+          <!-- input juiz FIM-->
+
+          <!-- inputs locais e modalidades --> 
+
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="id_local">Local</label>
@@ -46,6 +75,11 @@
               </div>
               <input type="hidden" id="qtd_equipes" value="">
           </div>
+
+          <!-- inputs locais e modalidade FIM -->
+
+
+          <!-- inputs de equipes --> 
           <div  class="form-row">
             <div id="div_1" class="form-group col-md-6">
                <label for="id_equipe_1">EQUIPE 1</label>

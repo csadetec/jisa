@@ -9,7 +9,7 @@ class Jogos extends CI_Controller {
     $this->load->library(array('table', 'form_validation'));
    
     verifica_login();
-   // $this->output->enable_profiler(TRUE);
+    //$this->output->enable_profiler(TRUE);
 
   }
 
@@ -168,7 +168,7 @@ class Jogos extends CI_Controller {
       /**/
     endif;
 
-    $data['juiz'] = $this->usuarios_model->select_juiz();
+    $data['juizes'] = $this->usuarios_model->select_juiz();
     $data['locais'] = $this->locais_model->select();
     $data['modalidades'] = $this->modalidades_model->select();
     $data['equipes'] = $this->equipes_model->select();
@@ -211,7 +211,7 @@ class Jogos extends CI_Controller {
       /**/
     endif;
     
-    $data['juiz'] = $this->usuarios_model->select_juiz();
+    $data['juizes'] = $this->usuarios_model->select_juiz();
     $data['equipes'] = $this->equipes_model->select();
     $data['locais'] = $this->locais_model->select();
     $data['modalidades'] = $this->modalidades_model->select();

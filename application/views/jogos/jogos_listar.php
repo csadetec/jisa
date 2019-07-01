@@ -22,10 +22,12 @@
         </div>
         <div class="col-6 col-lg-8" style="float:right">          
           <?php
+        
           $id_perfil = $this->session->userdata('id_perfil');
           if($id_perfil == '1' or $id_perfil == '3'):
              echo  anchor('jogos/editar/'.$row->id_jogo, '<i class="fas fa-edit"></i>'.'  j'.$row->id_jogo, array('class'=>'', 'title'=>'Editar Jogo', 'style'=>'float:right; border-radius:50%')).'<br>';              
           endif;
+          /** */
           ?>
           <span style="float:right" ><?php echo set_data($row->data).' '.'<b>'.$row->horas_inicial.'</b>'?></span><br>
           <span style="float:right" ><?php echo $row->nome_local ?></span><br>

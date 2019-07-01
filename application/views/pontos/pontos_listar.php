@@ -14,7 +14,7 @@
     <li class="list-group-item">
       <?php echo '<h5>'.$row->nome_turma.'</h5>' ?>
       Pontos:  <?php echo $row->pontos ?>
-       <?php echo  anchor('pontos/editar/'.$row->id_turma, '<i class="fas fa-edit"></i>', array('title'=>'Editar pontos da Turma', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right;')); ?>
+       <?php /*echo  anchor('pontos/editar/'.$row->id_turma, '<i class="fas fa-edit"></i>', array('title'=>'Editar pontos da Turma', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right;')); */?>
     </li>
     <?php endforeach; ?>
   </ul>
