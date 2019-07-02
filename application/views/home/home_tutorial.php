@@ -3,7 +3,9 @@
     <h4>TURMAS</h4>
     <ul>
       <li class=""><a class="" href="#" id="cadastrarTurma">Cadastrar Turma</a></li>
-      <li class=""><a class="" href="#" id="listarTurmas">Listar Turmas</a></li>
+		<!--
+	 <li class=""><a class="" href="#" id="listarTurmas">Listar Turmas</a></li>
+	 <!-- -->
       <li class=""><a class="" href="#" id="editarTurma">Editar Turma</a></li>
       <!--
       <li class=""><a class="" href="#">Visualizar Equipes da Turma</a></li>
@@ -35,7 +37,7 @@
       <h5>1° Passo</h5>
       <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/turmas.png?2019'); ?>" " alt="">
       <h5>2° Passo</h5>
-      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/turma_cadastrar.png'); ?>" " alt="">
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/turmas_cadastrar.png?2019'); ?>" " alt="">
     </div>
     <div id="listarTurmas">
       <h4>Listar Turmas</h4>
@@ -51,9 +53,7 @@
       <h5>1° Passo</h5>
       <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/turmas.png'); ?>" " alt="">
       <h5>2° Passo</h5>
-      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/turmas_lista.png?04062019'); ?>" " alt="">
-      <h5>3° Passo</h5>
-      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/turma_editar.png'); ?>" " alt="">
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/turmas_editar.png'); ?>" " alt="">
     </div>
 
     <div id="cadastrarEquipe">
