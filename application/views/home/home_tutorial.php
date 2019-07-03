@@ -35,6 +35,20 @@
       <li class=""><a class="" href="#" id="cadastrarUsuario">Cadastrar Usuário</a></li>
       <li class=""><a class="" href="#" id="editarUsuario">Editar Usuário</a></li>
     </ul>
+    <h4>Modalidades</h4>
+    <ul>
+      <li class=""><a class="" href="#" id="cadastrarModalidade">Cadastrar Modalidades</a></li>
+      <li class=""><a class="" href="#" id="editarModalidade">Editar Modalidades</a></li>
+    </ul>
+    <h4>Locais</h4>
+    <ul>
+      <li class=""><a class="" href="#" id="cadastrarLocal">Cadastrar Local</a></li>
+      <li class=""><a class="" href="#" id="editarLocal">Editar Local</a></li>
+    </ul>
+    <h4>Juiz</h4>
+    <ul>
+      <li class=""><a class="" href="#" id="juizJogo">Atribuir Jogo ao Juiz</a></li>
+    </ul>
   </div><!-- col-md-3 -->
   <div class="col-md-9">
     <div id="cadastrarTurma">
@@ -144,15 +158,67 @@
       <h4>Editar Usuário</h4>
       <hr>
       <h5>1° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/configuracoes.png'); ?>" " alt="">
+      <h5>2° Passo</h5>
       <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/usuarios.png'); ?>" " alt="">
       <h5>2° Passo</h5>
       <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/usuarios_editar.png'); ?>" " alt="">
-      
     </div>
 
+    <div id="cadastrarModalidade">
+      <h4>Cadastrar Modalidades</h4>
+      <hr>
+      <h5>1° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/configuracoes.png'); ?>" " alt="">
+      <h5>2° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/modalidades.png'); ?>" " alt="">
+      <h5>3° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/modalidades_cadastrar.png'); ?>" " alt="">
+    </div>
+    <div id="editarModalidade">
+      <h4>Editar Modalidades</h4>
+      <hr>
+      <h5>1° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/configuracoes.png'); ?>" " alt="">
+      <h5>2° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/modalidades.png'); ?>" " alt="">
+      <h5>3° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/modalidades_editar.png'); ?>" " alt="">
+    </div>
 
+    <div id="cadastrarLocal">
+      <h4>Cadastrar Locais</h4>
+      <hr>
+      <h5>1° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/configuracoes.png'); ?>" " alt="">
+      <h5>2° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/locais.png'); ?>" " alt="">
+      <h5>3° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/locais_cadastrar.png'); ?>" " alt="">
+    </div>
+    <div id="editarLocal">
+      <h4>Editar Locais</h4>
+      <hr>
+      <h5>1° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/configuracoes.png'); ?>" " alt="">
+      <h5>2° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/locais.png'); ?>" " alt="">
+      <h5>2° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/locais_editar.png'); ?>" " alt="">
+    </div>
 
-
+    <div id="juizJogo">
+      <h4>Atribuir Jogo ao Juiz Locais</h4>
+      <hr>
+      <h5>1° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/configuracoes.png'); ?>" " alt="">
+      <h5>2° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/juiz_jogos.png'); ?>" " alt="">
+      <!--
+      <h5>2° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/usuarios_editar.png'); ?>" " alt="">
+      <!-- -->
+    </div>
   </div>
 </div>
 
@@ -213,14 +279,38 @@
       hideAll();
       $("div#listarPontos").show()
     })
-
     $("a#cadastrarUsuario").click(function(){
-      
       hideAll();
       $('div#cadastrarUsuario').show()
-      /** */
-      //console.log('clicou')
     })
+    $("a#editarUsuario").click(function(){
+      hideAll();
+      $('div#editarUsuario').show()
+    })
+
+    $("a#cadastrarModalidade").click(function(){
+      hideAll();
+      $('div#cadastrarModalidade').show()
+    })
+    $("a#editarModalidade").click(function(){
+      hideAll();
+      $('div#editarModalidade').show()
+    })
+
+    $("a#cadastrarLocal").click(function(){
+      hideAll();
+      $('div#cadastrarLocal').show()
+    })
+    $("a#editarLocal").click(function(){
+      hideAll();
+      $('div#editarLocal').show()
+    })
+
+    $("a#juizJogo").click(function(){
+      hideAll()
+      $('div#juizJogo').show()
+    })
+
     hideAll();
 
     function hideAll(){
@@ -242,6 +332,16 @@
 
       $("div#cadastrarUsuario").hide()
       $("div#editarUsuario").hide()
+
+      $("div#cadastrarModalidade").hide()
+      $("div#editarModalidade").hide()
+
+      $("div#cadastrarLocal").hide()
+      $("div#editarLocal").hide()
+
+      $("div#juizJogo").hide()
+     
+
     }
 
     
