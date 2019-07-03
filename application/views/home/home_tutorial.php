@@ -30,6 +30,11 @@
     <ul>
       <li class=""><a class="" href="#" id="listarPontos">Listar os Pontos</a></li>
     </ul>
+    <h4>USUÁRIOS</h4>
+    <ul>
+      <li class=""><a class="" href="#" id="cadastrarUsuario">Cadastrar Usuário</a></li>
+      <li class=""><a class="" href="#" id="editarUsuario">Editar Usuário</a></li>
+    </ul>
   </div><!-- col-md-3 -->
   <div class="col-md-9">
     <div id="cadastrarTurma">
@@ -115,9 +120,39 @@
       <h5>3° Passo</h5>
       <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/jogos_sumula_2.png'); ?>" " alt="">
     </div>
+
+    <div id="listarPontos">
+      <h4>Pontos</h4>
+      <hr>
+      <h5>1° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/pontos.png'); ?>" " alt="">
+      
+    </div>
+
+    <div id="cadastrarUsuario">
+      <h4>Cadastrar Usuário</h4>
+      <hr>
+      <h5>1° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/usuarios.png'); ?>" " alt="">
+      <h5>2° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/usuarios_cadastrar.png'); ?>" " alt="">
+      
+    </div>
+    <div id="editarUsuario">
+      <h4>Editar Usuário</h4>
+      <hr>
+      <h5>1° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/usuarios.png'); ?>" " alt="">
+      <h5>2° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/usuarios_editar.png'); ?>" " alt="">
+      
+    </div>
+
+
+
+
   </div>
 </div>
-  
 
 <script>
   $(document).ready(function(){
@@ -172,6 +207,10 @@
       $("div#sumulaJogo").show(1000);
     });
    
+    $("a#listarPontos").click(function(){
+      hideAll();
+      $("div#listarPontos").show()
+    })
     hideAll();
 
     function hideAll(){
@@ -188,6 +227,11 @@
       $("div#listarJogos").hide();
       $("div#editarJogo").hide();
       $("div#sumulaJogo").hide();
+
+      $("div#listarPontos").hide()
+
+      $("div#cadastrarUsuario").hide()
+      $("div#editarUsuario").hide()
     }
 
     
