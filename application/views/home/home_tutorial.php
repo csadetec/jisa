@@ -133,8 +133,10 @@
       <h4>Cadastrar Usuário</h4>
       <hr>
       <h5>1° Passo</h5>
-      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/usuarios.png'); ?>" " alt="">
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/configuracoes.png'); ?>" " alt="">
       <h5>2° Passo</h5>
+      <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/usuarios.png'); ?>" " alt="">
+      <h5>3° Passo</h5>
       <img class="img-fluid" src="<?php echo base_url('assets/imagens/tutorial/usuarios_cadastrar.png'); ?>" " alt="">
       
     </div>
@@ -210,6 +212,14 @@
     $("a#listarPontos").click(function(){
       hideAll();
       $("div#listarPontos").show()
+    })
+
+    $("a#cadastrarUsuario").click(function(){
+      
+      hideAll();
+      $('div#cadastrarUsuario').show()
+      /** */
+      //console.log('clicou')
     })
     hideAll();
 
