@@ -40,7 +40,7 @@ class Locais extends CI_Controller {
       endif;
     endif;
     
-    $data['titulo'] = 'Editar Equipe '.$data['local']->nome_local;
+    $data['titulo'] = 'EDITAR LOCAL '.$data['local']->nome_local;
     $data['page'] = 'locais/locais_form';
     $data['action'] = 'locais/editar/'.$id_local;
     $data['btn_value'] = 'ATUALIZAR';

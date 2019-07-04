@@ -13,7 +13,7 @@
         </div>
        <div class="col-6 col-lg-9 mt-3" style="float:right"> 
           <?php echo  anchor('turmas/editar/'.$row->id_turma, '<i class="fas fa-edit"></i>', array('title'=>'Visualizar Equipes', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right; margin-left:10px')); ?> 
-          <?php echo  anchor('equipes/listar_por_turma/'.$row->id_turma, '<i class="fas fa-eye"></i>', array('title'=>'Visualizar Equipes', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right;')); ?>
+          <?php echo  anchor('equipes/listar_por_turma/'.$row->id_turma, '<i class="fas fa-eye"></i>', array('title'=>'Editar Turma', 'class'=>'btn btn-primary', 'style'=>'border-radius:50%;  float:right;')); ?>
         </div>
       </div>
     
