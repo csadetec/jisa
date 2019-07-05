@@ -41,6 +41,15 @@ class Pontos_model extends CI_Model {
 		return $this->db->get()->result();
 
 	}
+	public function select_pontos_turmas_(){
+		$this->db->select('p.id_turma, t.nome_turma, sum(p.pontos) as pontos');
+		$this->db->from($this->table_pontos_2.' as p');
+		$this->db->join($this->table_turmas. ' as t', 'p.id_turma = t.id_turma');
+		$this->db->group_by('nome_turma');
+		$this->db->order_by('pontos', 'desc');
+		return $this->db->get()->result();
+
+	}
 	/*
 	
 	public function select_pontos_turma_id($id_turma=null){

@@ -6,7 +6,7 @@
     <?php foreach($jogos as $row): ?>
     <li class="list-group-item">
       <div class="row">
-        <div class="col-6 col-lg-4 mt-1">      
+        <div class="col-6 col-lg-7 mt-1">      
           <?php $e = null; ?>   
           <?php echo anchor('jogos/visualizar/'.$row->id_jogo,
             set_equipe_pontos($row->nome_equipe_1, $row->pontos_final_1).
@@ -20,7 +20,7 @@
           ?>
 
         </div>
-        <div class="col-6 col-lg-8" style="float:right">          
+        <div class="col-6 col-lg-5" style="float:right">          
           <?php
         
           $id_perfil = $this->session->userdata('id_perfil');
