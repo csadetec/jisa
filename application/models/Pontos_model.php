@@ -104,8 +104,9 @@ class Pontos_model extends CI_Model {
 	}
 
 
-	public function select_by_id_jogo($id_jogo){
+	public function select_by_id_jogo_id_equipe($id_jogo, $id_equipe){
 		$this->db->where('id_jogo', $id_jogo);
+		$this->db->where('id_equipe', $id_equipe);
 		return $this->db->get($this->table_pontos_2)->row();
 	}
 	

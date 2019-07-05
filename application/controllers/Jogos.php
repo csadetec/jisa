@@ -9,7 +9,7 @@ class Jogos extends CI_Controller {
     $this->load->library(array('table', 'form_validation'));
    
     verifica_login();
-    //$this->output->enable_profiler(TRUE);
+    $this->output->enable_profiler(TRUE);
 
   }
 
@@ -55,33 +55,7 @@ class Jogos extends CI_Controller {
     
   }
 
-  public function pontos($jogo){
-    if($jogo->id_equipe_1 != 0):
-      //$turma = 
-      $equipe_1 = array(
-        'id_equipe' => $jogo->id_equipe_1,
-        'id_turma' => $this->equipes_model->select_id($jogo->id_equipe_1)->id_turma,
-        'nome_equipe' =>$jogo->nome_equipe_1,
-        'pontos'=> $jogo->pontos_final_1,
-        'id_jogo' => $jogo->id_jogo,
-      );
-      if($this->pontos_model->select_by_id_jogo($equipe_1['id_jogo'])):
-        if($this->pontos_model->update_2($equipe_1, $equipe_1['id_jogo'], $equipe_1['id_equipe'])):
-          set_msg('Jogo Atualizado com sucesso 1', 'success');
-       //   redirect('jogos/visualizar/'.$equipe_1['id_jogo']);
-        else:
-          set_msg('Erro ao dar os pontos', 'danger');
-        endif;
-      else:
-        if($this->pontos_model->insert_2($equipe_1)):
-          set_msg('Jogo Atualizado com sucesso 2', 'success');
-      //    redirect('jogos/visualizar/'.$equipe['id_jogo']);
-        else:
-          set_msg('Erro ao dar os pontos', 'danger');
-        endif;
-      endif;
-    endif;
-  }
+
 
   public function visualizar($id_jogo=null){
 
@@ -263,9 +237,161 @@ class Jogos extends CI_Controller {
 
     }
   }
+
+  public function pontos($jogo){
+    $success1 = true;
+    $success2 = true;
+    $success3 = true;
+    $success4 = true;
+    $success5 = true;
+     
+    
+    if($jogo->id_equipe_1 > 0):
+      //$turma = 
+      $equipe_1 = array(
+        'id_equipe' => $jogo->id_equipe_1,
+        'id_turma' => $this->equipes_model->select_id($jogo->id_equipe_1)->id_turma,
+        'nome_equipe' =>$jogo->nome_equipe_1,
+        'pontos'=> $jogo->pontos_final_1,
+        'id_jogo' => $jogo->id_jogo,
+      );
+      if($this->pontos_model->select_by_id_jogo_id_equipe($equipe_1['id_jogo'], $equipe_1['id_equipe'])):
+        if($this->pontos_model->update_2($equipe_1, $equipe_1['id_jogo'], $equipe_1['id_equipe'])):
+          //true
+        else:
+          $success1 = false;
+        endif;
+      else:
+        if($this->pontos_model->insert_2($equipe_1)):
+          //
+        else:
+          $success1 = false;
+        endif;
+      endif;
+   
+    endif;
+    /** */
+    if($jogo->id_equipe_2 > 0):
+
+      $equipe_2 = array(
+        'id_equipe' => $jogo->id_equipe_2,
+        'id_turma' => $this->equipes_model->select_id($jogo->id_equipe_2)->id_turma,
+        'nome_equipe' =>$jogo->nome_equipe_2,
+        'pontos'=> $jogo->pontos_final_2,
+        'id_jogo' => $jogo->id_jogo,
+      );
+     
+      if($this->pontos_model->select_by_id_jogo_id_equipe($equipe_2['id_jogo'], $equipe_2['id_equipe'])):
+        
+        if($this->pontos_model->update_2($equipe_2, $equipe_2['id_jogo'], $equipe_2['id_equipe'])):
+          //true
+        else:
+          $success2=false;
+        endif;
+      else:
+        if($this->pontos_model->insert_2($equipe_2)):
+          //true
+        else:
+          $success2=false;
+        endif;
+      
+      endif;
+   
+    endif;
+
+    if($jogo->id_equipe_3 > 0):
+      //$turma = 
+      $equipe_3 = array(
+        'id_equipe' => $jogo->id_equipe_3,
+        'id_turma' => $this->equipes_model->select_id($jogo->id_equipe_3)->id_turma,
+        'nome_equipe' =>$jogo->nome_equipe_3,
+        'pontos'=> $jogo->pontos_final_3,
+        'id_jogo' => $jogo->id_jogo,
+      );
+      if($this->pontos_model->select_by_id_jogo_id_equipe($equipe_3['id_jogo'], $equipe_3)):
+        if($this->pontos_model->update_2($equipe_3, $equipe_3['id_jogo'], $equipe_3['id_equipe'])):
+          set_msg('Jogo Atualizado com sucesso', 'success');
+          redirect('jogos/visualizar/'.$equipe_3['id_jogo']);
+        else:
+          set_msg('Erro ao dar os pontos', 'danger');
+        endif;
+      else:
+        if($this->pontos_model->insert_2($equipe_3)):
+          set_msg('Jogo Atualizado com sucesso', 'success');
+          redirect('jogos/visualizar/'.$equipe_3['id_jogo']);
+        else:
+          set_msg('Erro ao dar os pontos', 'danger');
+        endif;
+      endif;
+    
+    endif;
+
+    if($jogo->id_equipe_4 > 0):
+      //$turma = 
+      $equipe_4 = array(
+        'id_equipe' => $jogo->id_equipe_4,
+        'id_turma' => $this->equipes_model->select_id($jogo->id_equipe_4)->id_turma,
+        'nome_equipe' =>$jogo->nome_equipe_4,
+        'pontos'=> $jogo->pontos_final_4,
+        'id_jogo' => $jogo->id_jogo,
+      );
+      if($this->pontos_model->select_by_id_jogo($equipe_4['id_jogo'])):
+        if($this->pontos_model->update_2($equipe_4, $equipe_4['id_jogo'], $equipe_4['id_equipe'])):
+          set_msg('Jogo Atualizado com sucesso', 'success');
+          redirect('jogos/visualizar/'.$equipe_4['id_jogo']);
+        else:
+          set_msg('Erro ao dar os pontos', 'danger');
+        endif;
+      else:
+        if($this->pontos_model->insert_2($equipe_4)):
+          set_msg('Jogo Atualizado com sucesso', 'success');
+          redirect('jogos/visualizar/'.$equipe_4['id_jogo']);
+        else:
+          set_msg('Erro ao dar os pontos', 'danger');
+        endif;
+      endif;
+    
+    endif;
+
+    if($jogo->id_equipe_5 > 0):
+      //$turma = 
+      $equipe_5 = array(
+        'id_equipe' => $jogo->id_equipe_5,
+        'id_turma' => $this->equipes_model->select_id($jogo->id_equipe_5)->id_turma,
+        'nome_equipe' =>$jogo->nome_equipe_5,
+        'pontos'=> $jogo->pontos_final_5,
+        'id_jogo' => $jogo->id_jogo,
+      );
+      if($this->pontos_model->select_by_id_jogo($equipe_5['id_jogo'])):
+        if($this->pontos_model->update_2($equipe_5, $equipe_5['id_jogo'], $equipe_5['id_equipe'])):
+          set_msg('Jogo Atualizado com sucesso', 'success');
+          redirect('jogos/visualizar/'.$equipe_5['id_jogo']);
+        else:
+          set_msg('Erro ao dar os pontos', 'danger');
+        endif;
+      else:
+        if($this->pontos_model->insert_2($equipe_5)):
+          set_msg('Jogo Atualizado com sucesso', 'success');
+          redirect('jogos/visualizar/'.$equipe_5['id_jogo']);
+        else:
+          set_msg('Erro ao dar os pontos', 'danger');
+        endif;
+      endif;
+   
+    endif;
+    
+    if($success1 and $success2){
+      set_msg('Jogo Atualizado com Sucesso', 'success');
+      //redirect('jogos/visualizar/'.$jogo->id_jogo);
+    }else{
+      set_msg('Erro ao dar os pontos', 'danger');
+    }
+  }
  
 
 }
+
+
 
 /* End of file Alunos.php */
 /* Location: ./application/controllers/Alunos.php */ 
