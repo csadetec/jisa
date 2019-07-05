@@ -10,7 +10,7 @@ class Pontos extends CI_Controller {
    
     verifica_login();
     verifica_admin_coordenador();
-  //  $this->output->enable_profiler(TRUE);
+   $this->output->enable_profiler(TRUE);
 
   }
 
@@ -23,18 +23,22 @@ class Pontos extends CI_Controller {
 
 
 
-    $pontos[] = $this->pontos_model->select_pontos_id_equipe_1();
-    $pontos[] = $this->pontos_model->select_pontos_id_equipe_2();
+    $pontos = $this->pontos_model->select_pontos_id_equipe_1();
+	
+	$pontos[] = $this->pontos_model->select_pontos_id_equipe_2();
     $pontos[] = $this->pontos_model->select_pontos_id_equipe_3();
     $pontos[] = $this->pontos_model->select_pontos_id_equipe_4();
     $pontos[] = $this->pontos_model->select_pontos_id_equipe_5();
 
-    /**
-    echo '<pre>';
+	/*
+
+	echo '<pre>';
+	print_r($this->turmas_model->select());
     print_r($pontos);
     echo '</pre>';
     /**/
-       
+	
+
     
     if($this->pontos_model->truncate()):
       foreach($pontos as $p):
@@ -59,16 +63,23 @@ class Pontos extends CI_Controller {
 	  echo '<br>';
 	  print_r($data['turmas']);
 	  echo '</pre>';
-	  /**/
+	  */
       $data['equipes'] = null;
       $data['titulo'] = 'PONTOS | TURMAS';
     endif;
   
     $data['page'] = 'pontos/pontos_listar';
     $this->load->view('load', $data, FALSE);
-    /**/
+
+	
 
 
+  }
+
+  public function cadastrar($dados=null){
+	  echo '<br>';
+	  print_r($dados);
+	  echo '</br>';
   }
 
 

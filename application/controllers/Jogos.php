@@ -55,17 +55,40 @@ class Jogos extends CI_Controller {
     
   }
 
+  public function pontos($jogo){
+    if($jogo->id_equipe_1 != 0):
+      //$turma = 
+      $equipe_1 = array(
+        'id_equipe' => $jogo->id_equipe_1,
+        'id_turma' => $this->equipes_model->select_id($jogo->id_equipe_1)->id_turma,
+        'nome_equipe' =>$jogo->nome_equipe_1,
+        'pontos'=> $jogo->pontos_final_1,
+        'id_jogo' => $jogo->id_jogo,
+      );
+      if($this->pontos_model->select_by_id_jogo($equipe_1['id_jogo'])):
+        if($this->pontos_model->update_2($equipe_1, $equipe_1['id_jogo'], $equipe_1['id_equipe'])):
+          set_msg('Jogo Atualizado com sucesso 1', 'success');
+       //   redirect('jogos/visualizar/'.$equipe_1['id_jogo']);
+        else:
+          set_msg('Erro ao dar os pontos', 'danger');
+        endif;
+      else:
+        if($this->pontos_model->insert_2($equipe_1)):
+          set_msg('Jogo Atualizado com sucesso 2', 'success');
+      //    redirect('jogos/visualizar/'.$equipe['id_jogo']);
+        else:
+          set_msg('Erro ao dar os pontos', 'danger');
+        endif;
+      endif;
+    endif;
+  }
+
   public function visualizar($id_jogo=null){
 
     verifica_admin_coordenador_juiz();
 
     $data['jogo'] = $this->jogos_model->select_id($id_jogo);
-    /*
-    echo '<pre>';
-    echo '<br>';
-    print_r($data['jogo']);
-    echo '</pre>';
-    /**/   
+    
     if(!$id_jogo or !$data['jogo'])redirect('locais/listar');
     
     $this->form_validation->set_rules('pontos_equipe_1', 'PONTOS DA EQUIPE 1', 'trim|required');    
@@ -78,10 +101,12 @@ class Jogos extends CI_Controller {
     else:
       $post = $this->input->post();
       $post['id_usuario'] = $this->session->userdata('id_usuario');
-     
+      
+  
       if($this->jogos_model->update($id_jogo, $post)):
-        set_msg('Jogo Atualizado com sucesso', 'success');
-        redirect('jogos/visualizar/'.$id_jogo);
+        //set_msg('Jogo Atualizado com sucesso', 'success');
+        //redirect('jogos/visualizar/'.$id_jogo);
+        $this->pontos($data['jogo']);
       else:
         set_msg('Falha ao Atualizar', 'danger');
       endif;

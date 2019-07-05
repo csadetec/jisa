@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Pontos_model extends CI_Model {
 
 	private $table_pontos = 'jisa_pontos';
+	private $table_pontos_2 = 'jisa_pontos_2'; //insert or update for game
     private $table_jogos='jisa_jogos';
     private $table_equipes = 'jisa_equipes';
     private $table_modalidades='jisa_modalidades';
@@ -16,8 +17,6 @@ class Pontos_model extends CI_Model {
 	public function truncate(){
 		return $this->db->truncate($this->table_pontos);
 	}
-
-
 
 	public function select_pontos_equipes(){
 		$this->db->select('p.nome_equipe, sum(p.pontos) as pontos, t.nome_turma, m.nome_modalidade');
@@ -54,6 +53,7 @@ class Pontos_model extends CI_Model {
 
 	}
 	/** */
+
 
 	public function select_pontos_id_equipe_1(){
 		$this->db->select('j.id_equipe_1 as id_equipe, t.id_turma, t.nome_turma, e.nome_equipe,'
@@ -93,7 +93,7 @@ class Pontos_model extends CI_Model {
 		$this->db->group_by('j.id_equipe_4');
 		return $this->db->get()->result();
 	}
-		public function select_pontos_id_equipe_5(){
+	public function select_pontos_id_equipe_5(){
 		$this->db->select('j.id_equipe_5 as id_equipe, t.id_turma, t.nome_turma, e.nome_equipe,'
 		.'sum(j.pontos_final_5) as pontos, j.id_jogo');
 		$this->db->from($this->table_jogos.' as j');
@@ -104,11 +104,26 @@ class Pontos_model extends CI_Model {
 	}
 
 
+	public function select_by_id_jogo($id_jogo){
+		$this->db->where('id_jogo', $id_jogo);
+		return $this->db->get($this->table_pontos_2)->row();
+	}
 	
 
 	public function insert($dados){
 		$this->db->insert($this->table_pontos, $dados);
 		return $this->db->insert_id();
+	}
+	public function insert_2($dados){
+		$this->db->insert($this->table_pontos_2, $dados);
+		return $this->db->insert_id();
+	}
+
+
+	public function update_2($dados, $id_jogo, $id_equipe){
+		$this->db->where('id_jogo', $id_jogo);
+		$this->db->where('id_equipe', $id_equipe);
+		return $this->db->update($this->table_pontos_2, $dados);
 	}
 	
 

@@ -12,6 +12,8 @@ class Turmas_model extends CI_Model {
 		$this->db->order_by('t.nome_turma', 'asc');
 		return $this->db->get()->result();
 	}
+
+
 	
 	public function select_id($id_turma=null){
 		$this->db->where('id_turma', $id_turma);
