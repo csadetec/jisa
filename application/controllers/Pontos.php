@@ -10,7 +10,7 @@ class Pontos extends CI_Controller {
    
     	verifica_login();
     	verifica_admin_coordenador();
-  // 		$this->output->enable_profiler(TRUE);
+   		//$this->output->enable_profiler(TRUE);
 
   	}
 

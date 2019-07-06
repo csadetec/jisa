@@ -102,7 +102,7 @@ function set_title($obs){
 /**/
 function set_equipe_pontos($e, $p){
     if($e != '' and $p !='0'){
-        return $e.': '.$p.'<br>';
+        return $e.': '.'<strong>'.$p.'</strong>'.'<br>';
     }elseif($e != ''){
         return $e.'<br>';
     }

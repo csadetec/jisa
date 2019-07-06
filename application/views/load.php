@@ -31,12 +31,12 @@
       <li class="nav-item">
         <?php echo anchor('jogos/listar', 'JOGOS', array('class'=>'nav-link')); ?>
       </li>
-      <!--
+      <!-- -->
       <li class="nav-item">
         <?php echo anchor('pontos/listar_', 'PONTOS', array('class'=>'nav-link')); ?>
       </li>
       <!-- -->
-      <!-- -->
+      <!-- 
       <li class="nav-item">
         <?php echo anchor('pontos/listar/turmas', 'PONTOS', array('class'=>'nav-link')); ?>
       </li>

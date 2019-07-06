@@ -16,7 +16,7 @@ class Testes_model extends CI_Model {
 	}
     
     public function update_jogos_turma_1($id_turma, $id_equipe){
-        $this->db->where('id_equipe_1', $id_equipe)
+        $this->db->where('id_equipe_1', $id_equipe);
     }
 }
 

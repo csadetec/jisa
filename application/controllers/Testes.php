@@ -30,6 +30,16 @@ class Testes extends CI_Controller {
         /** */
 
     }
+
+    public function qrcode(){
+        for($c = 0; $c < 12; $c++){
+            echo '<img src="'.base_url('/assets/imagens/server_producao.png').'">';
+        }
+       
+        echo '<br>';
+        echo '<strong>'.'SERVIDOR TESTE'.'</strong>'.'<br>';
+        echo '<img src="'.base_url('/assets/imagens/server_teste.png').'">';
+    }
       
 
 }

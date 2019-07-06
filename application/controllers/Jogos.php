@@ -80,7 +80,9 @@ class Jogos extends CI_Controller {
       if($this->jogos_model->update($id_jogo, $post)):
         //set_msg('Jogo Atualizado com sucesso', 'success');
         //redirect('jogos/visualizar/'.$id_jogo);
-        $this->pontos($data['jogo']);
+        //$this->pontos($data['jogo']);
+        $this->pontos($data['jogo'], $post);
+        
       else:
         set_msg('Falha ao Atualizar', 'danger');
       endif;
@@ -96,7 +98,7 @@ class Jogos extends CI_Controller {
     $data['equipe_5'] = $this->formacoes_model->select_equipe($data['jogo']->id_equipe_5);
 
     
-    $data['titulo'] = set_data($data['jogo']->data).' - '.$data['jogo']->horas_inicial.' | '.$data['jogo']->nome_local;
+    $data['titulo'] = set_data($data['jogo']->data).' - '.$data['jogo']->horas_inicial.' | '.$data['jogo']->nome_local.' | J'.$data['jogo']->id_jogo ;
     $data['placeholder_pontos_equipe'] = 'GOLS';
     $data['placeholder_pontos_final'] = '';
     $data['btn_value'] = 'SALVAR';
@@ -238,173 +240,94 @@ class Jogos extends CI_Controller {
     }
   }
 
-  public function pontos($jogo){
+  public function pontos($jogo, $post){
+    /*
     echo '<pre>'.'<br>'.'<br>'.'<br>';
     print_r($jogo);
     echo '</pre>';
-    $success = true;
-    $success1 = true;
-    $success2 = true;
-    $success3 = true;
-    $success4 = true;
-    $success5 = true;
-     
+    /** */
+
     
+    $success = false;
+    $equipes = null;
     if($jogo->id_equipe_1 > 0):
-      //$turma = 
       $equipe_1 = array(
         'id_equipe' => $jogo->id_equipe_1,
         'id_turma' => $this->equipes_model->select_id($jogo->id_equipe_1)->id_turma,
         'nome_equipe' =>$jogo->nome_equipe_1,
-        'pontos'=> $jogo->pontos_final_1,
+        'pontos'=> $post['pontos_final_1'],
         'id_jogo' => $jogo->id_jogo,
       );
-      if($this->pontos_model->select_by_id_jogo_id_equipe($equipe_1['id_jogo'], $equipe_1['id_equipe'])):
-        if($this->pontos_model->update_2($equipe_1, $equipe_1['id_jogo'], $equipe_1['id_equipe'])):
-          //true
-        else:
-          $success1 = false;
-        endif;
-      else:
-        if($this->pontos_model->insert_2($equipe_1)):
-          //
-        else:
-          $success1 = false;
-        endif;
-      endif;
-   
+      $equipes[] = $equipe_1;
     endif;
-    /** */
     if($jogo->id_equipe_2 > 0):
-
       $equipe_2 = array(
         'id_equipe' => $jogo->id_equipe_2,
         'id_turma' => $this->equipes_model->select_id($jogo->id_equipe_2)->id_turma,
         'nome_equipe' =>$jogo->nome_equipe_2,
-        'pontos'=> $jogo->pontos_final_2,
+        'pontos'=> $post['pontos_final_2'],
         'id_jogo' => $jogo->id_jogo,
       );
-      echo '<pre>';
-      print_r($equipe_2);
-      echo '</pre>';
-     
-      if($this->pontos_model->select_by_id_jogo_id_equipe($equipe_2['id_jogo'], $equipe_2['id_equipe'])):
-        /*
-        if($this->pontos_model->update_2($equipe_2, $equipe_2['id_jogo'], $equipe_2['id_equipe'])):
-          //true
-        else:
-          $success=false;
-        endif;
-        /** */
-        ECHO 'Q PORRA';
-
-      else:
-        /*
-        if($this->pontos_model->insert_2($equipe_2)):
-          //true
-          ECHO 'Q PORRA NAO INSERIU';
-        else:
-          $success=false;
-        endif;
-        /** */
-      endif;
-   
+     $equipes[] = $equipe_2;
     endif;
-
     if($jogo->id_equipe_3 > 0):
-
       $equipe_3 = array(
         'id_equipe' => $jogo->id_equipe_3,
         'id_turma' => $this->equipes_model->select_id($jogo->id_equipe_3)->id_turma,
         'nome_equipe' =>$jogo->nome_equipe_3,
-        'pontos'=> $jogo->pontos_final_3,
+        'pontos'=> $post['pontos_final_3'],
         'id_jogo' => $jogo->id_jogo,
       );
-     
-      if($this->pontos_model->select_by_id_jogo_id_equipe($equipe_3['id_jogo'], $equipe_3['id_equipe'])):
-        
-        if($this->pontos_model->update_2($equipe_3, $equipe_3['id_jogo'], $equipe_3['id_equipe'])):
-          //true
-        else:
-          $success=false;
-        endif;
-      else:
-        if($this->pontos_model->insert_2($equipe_3)):
-          //true
-        else:
-          $success=false;
-        endif;
-      
-      endif;
-   
+     $equipes[] = $equipe_3;
     endif;
-
-
     if($jogo->id_equipe_4 > 0):
-
       $equipe_4 = array(
         'id_equipe' => $jogo->id_equipe_4,
         'id_turma' => $this->equipes_model->select_id($jogo->id_equipe_4)->id_turma,
         'nome_equipe' =>$jogo->nome_equipe_4,
-        'pontos'=> $jogo->pontos_final_4,
+        'pontos'=> $post['pontos_final_4'],
         'id_jogo' => $jogo->id_jogo,
       );
-     
-      if($this->pontos_model->select_by_id_jogo_id_equipe($equipe_4['id_jogo'], $equipe_4['id_equipe'])):
-        
-        if($this->pontos_model->update_2($equipe_4, $equipe_4['id_jogo'], $equipe_4['id_equipe'])):
-          //true
-        else:
-          $success=false;
-        endif;
-      else:
-        if($this->pontos_model->insert_2($equipe_4)):
-          //true
-        else:
-          $success=false;
-        endif;
-      
-      endif;
-   
+     $equipes[] = $equipe_4;
     endif;
-
     if($jogo->id_equipe_5 > 0):
-
       $equipe_5 = array(
         'id_equipe' => $jogo->id_equipe_5,
         'id_turma' => $this->equipes_model->select_id($jogo->id_equipe_5)->id_turma,
         'nome_equipe' =>$jogo->nome_equipe_5,
-        'pontos'=> $jogo->pontos_final_5,
+        'pontos'=> $post['pontos_final_5'],
         'id_jogo' => $jogo->id_jogo,
       );
-     
-      if($this->pontos_model->select_by_id_jogo_id_equipe($equipe_5['id_jogo'], $equipe_5['id_equipe'])):
-        
-        if($this->pontos_model->update_2($equipe_5, $equipe_5['id_jogo'], $equipe_5['id_equipe'])):
-          //true
+     $equipes[] = $equipe_5;
+    endif;
+    /*
+    echo '<pre>';
+    print_r($equipes);
+    echo '</pre>';
+    /**/
+    foreach($equipes as $row):
+      if($this->pontos_model->select_by_id_jogo_id_equipe($row['id_jogo'], $row['id_equipe'])):
+        if($this->pontos_model->update_2($row, $row['id_jogo'], $row['id_equipe'])):
+          $success =true;
         else:
-          $success=false;
+          $success = false;
         endif;
       else:
-        if($this->pontos_model->insert_2($equipe_5)):
-          //true
+        if($this->pontos_model->insert_2($row)):
+          $success = true;
         else:
-          $success=false;
+          $success = false;
         endif;
-      
       endif;
-   
-    endif;
-
-
-   
-    
+    endforeach;
+    /** */
     if($success){
       set_msg('Jogo Atualizado com Sucesso', 'success');
-    //  redirect('jogos/visualizar/'.$jogo->id_jogo);
+      redirect('jogos/visualizar/'.$jogo->id_jogo);
     }else{
       set_msg('Erro ao dar os pontos', 'danger');
     }
+   
   }
  
 
