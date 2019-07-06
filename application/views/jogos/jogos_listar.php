@@ -1,4 +1,9 @@
-<?php echo anchor('jogos/cadastrar', '<i class="fas fa-plus"></i> Cadastrar Jogo', array('style'=>'float:right; margin-bottom:10px;', 'class'=>'btn btn-success')); ?>
+<?php 
+  $id_perfil =  $this->session->userdata('id_perfil');
+  if($id_perfil == '1' or $id_perfil == '3'):
+    echo anchor('jogos/cadastrar', '<i class="fas fa-plus"></i> Cadastrar Jogo', array('style'=>'float:right; margin-bottom:10px;', 'class'=>'btn btn-success'));
+  endif;
+?>
 <input class="form-control " type="search" placeholder="Pesquisar.." aria-label="Pesquisar.." id="myInput" data-list="list-group">
 <div class="card mt-3"> 
   <?php if($jogos): ?>
