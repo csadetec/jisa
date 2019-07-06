@@ -15,17 +15,20 @@
   <link rel="stylesheet" href="<?php echo base_url('./assets/css/style.css?20190705') ?> ">   
 </head>
 
-<body id="login">
+<body id="login" >
 
   <div class="container">
+
     <?php
-    if ($msg = get_msg()):
+  
+  if ($msg = get_msg()):
       ?>
       <div class = "<?php echo @$msg['class'] ?>" role = "alert">
         <?php echo @$msg['aviso']; ?>
       </div>
       <?php
     endif;
+    /** */
     ?>
     <!-- justify-content-lg-center row align-items-center -->
     <div class="row justify-content-lg-center" id="login">
@@ -51,8 +54,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script>
     //openFullscreen()
-    document.getElementById("usuario").addEventListener('click', openFullscreen)
-    function openFullscreen() {
+    //document.getElementById("login").addEventListener('click', openFullScreen)
+    //document.dot.addEventListener(onload, openFullscreen)
+    document.querySelector('html').addEventListener('click', function(){
+      if(screen.width
+       < 900){
+        openFullScreen()
+      }
+    })
+
+   
+    function openFullScreen() {
       var elem = document.documentElement;
       if (elem.requestFullscreen) {
         elem.requestFullscreen();

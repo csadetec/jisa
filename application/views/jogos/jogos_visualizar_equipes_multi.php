@@ -8,7 +8,7 @@
   <?php
   if(isset($equipe_1)):
   ?>
-  <div class="col-md-6">
+  <div class="col-md-6 mt-5">
     <h4 style="margin-top: 20px"><?php echo strtoupper($jogo->nome_equipe_1)  ?></h4>
     <ul id="" class="list-group">
     <?php foreach($equipe_1 as $e): ?>
@@ -23,7 +23,7 @@
 
   if(isset($equipe_2)):
   ?>
-  <div class="col-md-6">
+  <div class="col-md-6 mt-5">
     <h4 style="margin-top: 20px"><?php echo strtoupper($jogo->nome_equipe_2)  ?></h4>
     <ul id="" class="list-group">
     <?php foreach($equipe_2 as $e): ?>
@@ -37,11 +37,11 @@
   endif;
 ?>
 </div>
-<div class="row" style="margin-top: 20px;">
+<div class="row">
   <?php
   if(isset($equipe_3)):
   ?>
-  <div class="col-md-6">
+  <div class="col-md-6 mt-5">
     <h4 id=""><?php echo strtoupper($jogo->nome_equipe_3)  ?></h4>
     <ul id="" class="list-group">
     <?php foreach($equipe_3 as $e): ?>
@@ -57,7 +57,7 @@
 
   if(isset($equipe_4)):
   ?>
-  <div class="col-md-6">
+  <div class="col-md-6 mt-5">
     <h4 id=""><?php echo strtoupper($jogo->nome_equipe_4)  ?></h4>
     <ul id="" class="list-group">
     <?php foreach($equipe_4 as $e): ?>
@@ -71,22 +71,22 @@
   endif;
   ?>
 </div>
-<div class="row" style="margin-top: 20px">
-<?php
-  if(isset($equipe_5)):
-  ?>
-  <div class="col-md-6">
-    <h4 id=""><?php echo strtoupper($jogo->nome_equipe_5)  ?></h4>
-    <ul id="" class="list-group">
-    <?php foreach($equipe_5 as $e): ?>
-      <li class="list-group-item d-flex justify-content-between align-items-center" >
-        <?php echo $e->nome_aluno ?>    
-      </li>
-    <?php endforeach; ?>
-    </ul>
-  </div>  
+<div class="row mt-5 mb-5" >
   <?php
-  endif;
+    if(isset($equipe_5)):
+    ?>
+    <div class="col-md-6">
+      <h4 id=""><?php echo strtoupper($jogo->nome_equipe_5)  ?></h4>
+      <ul id="" class="list-group">
+      <?php foreach($equipe_5 as $e): ?>
+        <li class="list-group-item d-flex justify-content-between align-items-center" >
+          <?php echo $e->nome_aluno ?>    
+        </li>
+      <?php endforeach; ?>
+      </ul>
+    </div>  
+    <?php
+    endif;
   ?>                                                                                   
 </div>
 

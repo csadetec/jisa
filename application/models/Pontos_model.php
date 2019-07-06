@@ -18,6 +18,11 @@ class Pontos_model extends CI_Model {
 		return $this->db->truncate($this->table_pontos);
 	}
 
+	public function delete($id_jogo){
+		$this->db->where('id_jogo', $id_jogo);
+		return $this->db->delete($this->table_pontos_2);
+	}
+
 	public function select_pontos_equipes(){
 		$this->db->select('p.nome_equipe, sum(p.pontos) as pontos, t.nome_turma, m.nome_modalidade');
 		$this->db->from($this->table_pontos.' as p');

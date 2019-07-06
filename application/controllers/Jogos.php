@@ -232,6 +232,7 @@ class Jogos extends CI_Controller {
     if($post){
       $id_jogo = $post['idJogo'];
       if($this->jogos_model->delete($id_jogo)){
+        $this->pontos_model->delete($id_jogo);
         echo 'success';
       }else{
         'fail';

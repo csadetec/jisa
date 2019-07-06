@@ -1,8 +1,8 @@
-<div class="row" style="margin-top:20px;">
+<div class="row" >
   <?php
   if(isset($equipe_1)):
   ?>
-  <div class="col-lg-6">
+  <div class="col-lg-6 mt-5">
     <h4 style="margin-top: 20px"><?php echo strtoupper($jogo->nome_equipe_1)  ?></h4>
     <ul id="" class="list-group">
     <?php foreach($equipe_1 as $e): ?>
@@ -17,7 +17,7 @@
 
   if(isset($equipe_2)):
   ?>
-  <div class="col-lg-6">
+  <div class="col-lg-6 mt-5">
     <h4 style="margin-top: 20px"><?php echo strtoupper($jogo->nome_equipe_2)  ?></h4>
     <ul id="" class="list-group">
     <?php foreach($equipe_2 as $e): ?>

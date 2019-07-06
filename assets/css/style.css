@@ -1,11 +1,15 @@
 html{
 	height: 100%;
 }
+
+body{
+	background: #c1d9f133;
+}
 body#login{
 	/**/
 	background: url("../imagens/background.jpg");
 	background-repeat: no-repeat;
-	//background-position: center;
+	
 	background-size: cover;
 	/**/
 	/*background: #c334be;*/
