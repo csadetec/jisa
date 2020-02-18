@@ -1,18 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-if($_SERVER['SERVER_NAME'] == 'lucas-app.atwebpages.com'):
-	$active_group = 'eohost';
-else:
+if($_SERVER['SERVER_NAME'] != 'jisa.azurewebsites.net'):
 	$active_group = 'default';
+
+else:
+	$active_group = 'azure';
+
 endif;
 $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'server',
-	'password' => 'server',
+	'username' => 'userdb',
+	'password' => 'userdb_server',
 	'database' => 'jisa',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
@@ -30,11 +32,11 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
-$db['eohost'] = array(
+$db['azure'] = array(
 	'dsn'	=> '',
-	'hostname' => 'fdb4.eohost.com',
-	'username' => '1909344_lucas',
-	'password' => 'eohost@7c8',
+	'hostname' => 'bdprotocolo.mysql.database.azure.com',
+	'username' => 'csadetec@bdprotocolo',
+	'password' => '@Csadetec_server',
 	'database' => '1909344_lucas',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

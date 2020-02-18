@@ -26,8 +26,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $server = $_SERVER['SERVER_NAME'];
 //$config['base_url'] = 'http://'.$server.'/jisa';
 
-if($server == 'lucas-app.atwebpages.com.br'):
-	$config['base_url'] = 'http://'.$server.'/jisa';
+if($server == 'jisa.com'):
+  $config['base_url'] = 'http://'.$server;
+elseif($server == 'jisa.azurewebsites.net'):
+  $config['base_url'] = 'https://'.$server;
 else:
 	$config['base_url'] = 'http://'.$server.'/jisa';
 endif;
