@@ -28,8 +28,10 @@ $server = $_SERVER['SERVER_NAME'];
 
 if($server == 'jisa.com'):
   $config['base_url'] = 'http://'.$server;
+  $index_page = '';
 elseif($server == 'jisa.azurewebsites.net'):
   $config['base_url'] = 'https://'.$server;
+  $index_page = 'index.php';
 else:
 	$config['base_url'] = 'http://'.$server.'/jisa';
 endif;
@@ -45,7 +47,7 @@ endif;
 */
 //$config['index_page'] = '';
 
-$config['index_page'] = $server == 'lucas-app.atwebpages.com'?'index.php':'';
+$config['index_page'] = $index_page;
 
 
 /*
