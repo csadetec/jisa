@@ -34,7 +34,7 @@
     <div class="row justify-content-lg-center" id="login">
       <div class="col-lg-6 align-self-center">
         <div class="card card-register">
-          <div class="card-header">LOGIN DO USUÁRIO</div>
+          <div class="card-header">LOGIN DO USUÁRIO 2020</div>
           <div class="card-body">
             <?php echo form_open('usuarios/login') ?>
               <div class="form-group">
