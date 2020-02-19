@@ -33,8 +33,11 @@ elseif($server == 'jisa.azurewebsites.net'):
   $config['base_url'] = 'https://'.$server;
   $index_page = 'index.php';
 else:
-	$config['base_url'] = 'http://'.$server.'/jisa';
+  $config['base_url'] = 'http://'.$server.'/jisa';
+  $index_page = ''; 
 endif;
+
+//print_r($config['base_url']);
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -45,7 +48,7 @@ endif;
 | variable so that it is blank.
 |
 */
-//$config['index_page'] = '';
+//$config['index_page'] = 'index.php';
 
 $config['index_page'] = $index_page;
 

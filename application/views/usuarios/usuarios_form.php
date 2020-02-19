@@ -67,7 +67,8 @@
           </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block" > <?php echo $btn_value ?></button>
-        <a href="<?php echo base_url("usuarios/listar") ?> " class="btn btn-secondary btn-block" >VOLTAR</a>  
+            
+        <?php echo anchor('usuarios/listar/', 'VOLTAR', array('class'=>'btn btn-secondary btn-block')); ?>
       </form>
     </div>
   </div>
