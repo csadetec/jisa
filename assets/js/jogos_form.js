@@ -20,7 +20,7 @@ $(document).ready(function(){
       var obj = {idJogo:idJogo};
       $.ajax({
         type:"POST",
-        url: 'http://'+hostname+'/jisa/jogos/excluir',
+        url: app()+'/jogos/excluir',
         data: obj,
         beforeSend: function() {
           $("#btnExcluirJogo").html('<i class="fas fa-sync"></i> Excluindo...').attr("disabled", "disabled");
@@ -50,8 +50,8 @@ $(document).ready(function(){
   }
   function equipes_modalidade(){
     var modalidade = $("#id_modalidade option:selected").val();
-    var hostname = window.location.hostname;
-    var url = "http://" + hostname + "/jisa/equipes/listar_por_modalidade_json/" + modalidade;
+
+    var url = app()+"/equipes/listar_por_modalidade_json/" + modalidade;
 
       $.getJSON(url, function(result){
         if(result.length > 0){
@@ -102,8 +102,7 @@ $(document).ready(function(){
 
   function verifica_modalidade(){
     var modalidade = $("#id_modalidade option:selected").val();
-    var hostname =  window.location.hostname;
-    var url = "http://"+hostname+"/jisa/modalidades/listar_json/"+modalidade;
+    var url = app()+"/modalidades/listar_json/"+modalidade;
     var qtd_equipes;
 
    // console.log(url);
