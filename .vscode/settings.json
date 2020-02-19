@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/b0af013d-df46-43b1-a9be-c0d8f595358c/resourceGroups/estudos/providers/Microsoft.Web/sites/csa-jisa",
+    "appService.deploySubpath": ""
+}
